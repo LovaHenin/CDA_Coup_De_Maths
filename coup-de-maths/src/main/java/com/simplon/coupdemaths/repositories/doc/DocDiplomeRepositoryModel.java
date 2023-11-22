@@ -1,6 +1,6 @@
 package com.simplon.coupdemaths.repositories.doc;
 
-import com.simplon.coupdemaths.repositories.professor.Professor;
+import com.simplon.coupdemaths.repositories.professor.ProfessorRepositoryModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +20,6 @@ public class DocDiplomeRepositoryModel {
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    private Professor professor;
+    private ProfessorRepositoryModel professor;
 
 }

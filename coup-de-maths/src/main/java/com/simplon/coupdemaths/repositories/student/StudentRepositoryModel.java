@@ -17,22 +17,32 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "student")
 public class StudentRepositoryModel {
+    // Unique identifier for the student
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "last_name")
-    private String lastName;
+    // Name of the student
+    @Column(name = "name")
+    private String name;
+
+    // Email address of the student
     @Column(name = "email")
     private String email;
+
+    // Password associated with the student's account
     @Column(name = "password")
     private String password;
+
+    // Number of credits available to the student
     @Column(name = "credits")
     private int credits;
 
+    // List of questions posted by the student
     @OneToMany(mappedBy = "student", orphanRemoval = true)
     private List<QuestionRepositoryModel> questions = new ArrayList<>();
 
+    // List of transactions associated with the student
     @OneToMany(mappedBy = "student", orphanRemoval = true)
     private List<TransactionRepositoryModel> transactions = new ArrayList<>();
 

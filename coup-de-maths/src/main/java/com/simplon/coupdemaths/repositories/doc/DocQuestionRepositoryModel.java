@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
 @Table(name="documentQuestion")
 public class DocQuestionRepositoryModel {
     @Id
@@ -23,6 +22,6 @@ public class DocQuestionRepositoryModel {
     @JoinColumn(name = "question_id")
     private QuestionRepositoryModel question;
 
-
-
+    public DocQuestionRepositoryModel() {
+    }
 }
