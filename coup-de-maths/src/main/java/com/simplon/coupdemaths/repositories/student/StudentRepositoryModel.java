@@ -5,6 +5,7 @@ import com.simplon.coupdemaths.repositories.transaction.TransactionRepositoryMod
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.aspectj.weaver.patterns.TypePatternQuestions;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
+@ToString
 @Table(name = "student")
 public class StudentRepositoryModel {
     // Unique identifier for the student

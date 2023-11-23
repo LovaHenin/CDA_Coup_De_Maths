@@ -8,6 +8,7 @@ import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Table(name="question")
+@ToString
 public class QuestionRepositoryModel {
 
     // Primary key for the Question entity

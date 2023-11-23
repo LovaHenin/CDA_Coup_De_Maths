@@ -1,7 +1,8 @@
 package com.simplon.coupdemaths.controllers.doc;
 
-public record DocQuestionDto(
-        Integer id,
+public record DocResponseDto(
+        int id,
         String documentName,
         String documentPath
-) {}
+) {
+}
