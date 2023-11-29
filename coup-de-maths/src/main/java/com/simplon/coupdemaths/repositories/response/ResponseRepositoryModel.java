@@ -18,7 +18,7 @@ public class ResponseRepositoryModel {
     // Unique identifier for the response
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // Text content of the response
     @Column(name = "response")

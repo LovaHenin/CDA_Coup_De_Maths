@@ -1,12 +1,12 @@
-package com.simplon.coupdemaths.controllers.response;
+package com.simplon.coupdemaths.dto;
 
-import com.simplon.coupdemaths.controllers.doc.DocResponseDto;
+import com.simplon.coupdemaths.dto.DocResponseDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public record ResponseDto(
-        int id,
+        Long id,
         String response,
         LocalDateTime responseDate,
 

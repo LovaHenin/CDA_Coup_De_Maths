@@ -1,8 +1,9 @@
 package com.simplon.coupdemaths.services.professor;
 
-import com.simplon.coupdemaths.repositories.doc.DocDiplomeRepositoryModel;
-import com.simplon.coupdemaths.repositories.response.ResponseRepositoryModel;
-import com.simplon.coupdemaths.repositories.transaction.TransactionRepositoryModel;
+
+import com.simplon.coupdemaths.services.doc.DocDiplomeServiceModel;
+import com.simplon.coupdemaths.services.response.ResponseServiceModel;
+import com.simplon.coupdemaths.services.transaction.TransactionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,12 +12,11 @@ import java.util.List;
 
 
 @Data
-@Service
 @NoArgsConstructor
 public class ProfessorServiceModel {
 
     // Unique identifier for the professor
-    private int id;
+    private Long id;
 
     // Name of the professor
     private String name;
@@ -31,11 +31,11 @@ public class ProfessorServiceModel {
     private int credits;
 
     // List of responses provided by the professor
-    private List<ResponseRepositoryModel> responses ;
+    private List<ResponseServiceModel> responses ;
 
     // List of transactions associated with the professor
-    private List<TransactionRepositoryModel> transactions ;
+    private List<TransactionServiceModel> transactions ;
 
     // List of diploma documents associated with the professor
-    private List<DocDiplomeRepositoryModel> docDiplomes ;
+    private List<DocDiplomeServiceModel> docDiplomes ;
 }

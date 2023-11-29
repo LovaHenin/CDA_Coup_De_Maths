@@ -1,6 +1,7 @@
 package com.simplon.coupdemaths.services.response;
 
-import com.simplon.coupdemaths.repositories.doc.DocResponseRepositoryModel;
+
+import com.simplon.coupdemaths.services.doc.DocResponseServiceModel;
 import com.simplon.coupdemaths.services.professor.ProfessorServiceModel;
 import com.simplon.coupdemaths.services.question.QuestionServiceModel;
 import lombok.Data;
@@ -12,14 +13,13 @@ import java.util.List;
 
 
 @Data
-@Service
 @NoArgsConstructor
 public class ResponseServiceModel {
 
-    private int id;
+    private Long id;
     private String response;
     private LocalDateTime responseDate;
     private QuestionServiceModel question;
-    private List<DocResponseRepositoryModel> docs;
+    private List<DocResponseServiceModel> docs;
     private ProfessorServiceModel professor;
 }

@@ -22,7 +22,7 @@ public class StudentRepositoryModel {
     // Unique identifier for the student
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // Name of the student
     @Column(name = "name")
@@ -42,10 +42,23 @@ public class StudentRepositoryModel {
 
     // List of questions posted by the student
     @OneToMany(mappedBy = "student", orphanRemoval = true)
-    private List<QuestionRepositoryModel> questions = new ArrayList<>();
+    private List<QuestionRepositoryModel> questions;
 
     // List of transactions associated with the student
     @OneToMany(mappedBy = "student", orphanRemoval = true)
-    private List<TransactionRepositoryModel> transactions = new ArrayList<>();
+    private List<TransactionRepositoryModel> transactions;
 
+
+    @Override
+    public String toString() {
+        return "StudentRepositoryModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", credits=" + credits +
+                ", questions=" + questions +
+                ", transactions=" + transactions +
+                '}';
+    }
 }

@@ -11,20 +11,19 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="question")
+@Table(name = "question")
 @ToString
 public class QuestionRepositoryModel {
 
     // Primary key for the Question entity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // Content of the question
     @Column(name = "question")
@@ -32,11 +31,11 @@ public class QuestionRepositoryModel {
 
     // Level of difficulty for the question (e.g,COLLEGE,HIGH_SCHOOL,UNIVERSITY)
     @Column(name = "level")
-    private LevelEnum level;
+    private String level;
 
     // Type of the question (e.g., urgent, normal)
     @Column(name = "type")
-    private QuestionTypeEnum questionType;
+    private String questionType;
 
     // Date and time when the question is created
     @Column(name = "date")
@@ -49,15 +48,16 @@ public class QuestionRepositoryModel {
 
     // One-to-Many relationship with DocQuestionRepositoryModel for question documents
     @OneToMany(mappedBy = "question", orphanRemoval = true)
-    private List<DocQuestionRepositoryModel> docs = new ArrayList<>();
+    private List<DocQuestionRepositoryModel> docs;
 
     // One-to-Many relationship with ResponseRepositoryModel for responses to the question
     @OneToMany(mappedBy = "question", orphanRemoval = true)
-    private List<ResponseRepositoryModel> responses = new ArrayList<>();
+    private List<ResponseRepositoryModel> responses;
 
     // PrePersist method to set the question date before persisting in the database
     @PrePersist
-    public void prePersist(){
+    public void prePersist() {
         this.questionDate = LocalDateTime.now();
     }
+
 }

@@ -6,11 +6,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Data
-@Service
 @NoArgsConstructor
 public class DocQuestionServiceModel {
     // Unique identifier for the document
-    private Integer id;
+    private Long id;
 
     // Name of the document
     private String documentName;

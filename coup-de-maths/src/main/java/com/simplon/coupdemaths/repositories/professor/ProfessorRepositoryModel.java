@@ -18,7 +18,7 @@ public class ProfessorRepositoryModel {
     // Unique identifier for the professor
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // Name of the professor
     @Column(name = "name")

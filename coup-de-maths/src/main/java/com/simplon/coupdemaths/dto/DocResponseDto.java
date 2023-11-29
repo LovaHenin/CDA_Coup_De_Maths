@@ -1,7 +1,7 @@
-package com.simplon.coupdemaths.controllers.doc;
+package com.simplon.coupdemaths.dto;
 
 public record DocResponseDto(
-        int id,
+        Long id,
         String documentName,
         String documentPath
 ) {

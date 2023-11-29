@@ -7,12 +7,11 @@ import org.springframework.stereotype.Service;
 
 
 @Data
-@Service
 @NoArgsConstructor
 public class DocDiplomeServiceModel {
 
     // Unique identifier for the document
-    private int id;
+    private Long id;
 
     // Name of the document
     private String documentName;

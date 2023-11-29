@@ -1,13 +1,13 @@
-package com.simplon.coupdemaths.controllers.transaction;
+package com.simplon.coupdemaths.dto;
 
 import com.simplon.coupdemaths.enums.TransactionTypeEnum;
 
 import java.time.LocalDateTime;
 
 public record TransactionDto(
-        int id,
+        Long id,
         LocalDateTime transactionDate,
-        TransactionTypeEnum transactionType,
+       String transactionType,
         float amount
 ) {
 }

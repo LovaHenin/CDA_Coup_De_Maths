@@ -17,7 +17,7 @@ public class TransactionRepositoryModel {
     // Unique identifier for the transaction
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // Date and time when the transaction occurred
     @Column(name = "date")
@@ -25,7 +25,7 @@ public class TransactionRepositoryModel {
 
     // Type of the transaction (e.g., credit purchase, payment)
     @Column(name = "type")
-    private TransactionTypeEnum transactionType;
+    private String transactionType;
 
     // Amount associated with the transaction
     @Column(name = "amount")
@@ -33,12 +33,15 @@ public class TransactionRepositoryModel {
 
     // Student involved in the transaction
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id",
+            foreignKey = @jakarta.persistence
+                    .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     private StudentRepositoryModel student;
 
     // Professor involved in the transaction
     @ManyToOne
-    @JoinColumn(name = "professor_id")
+    @JoinColumn(name = "professor_id",foreignKey = @jakarta.persistence
+            .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     private ProfessorRepositoryModel professor;
 
     // PrePersist method to set the transaction date before persisting in the database
