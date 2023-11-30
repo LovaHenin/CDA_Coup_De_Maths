@@ -15,7 +15,9 @@ public class DocQuestionService {
     private DocQuestionRepository docQuestionRepository;
 
     public List<DocQuestionServiceModel> getAll(){
+        /*
         List<DocQuestionRepositoryModel>docQuestionRepositoryModels=docQuestionRepository.findAll();
-        return docQuestionRepositoryModels.stream().map((value)-> CdmMapper.INSTANCE.repoToservice(value)).collect(Collectors.toList());
+        return docQuestionRepositoryModels.stream().map((value)-> CdmMapper.INSTANCE.repoToservice(value)).collect(Collectors.toList());*/
+        return null;
     }
 }

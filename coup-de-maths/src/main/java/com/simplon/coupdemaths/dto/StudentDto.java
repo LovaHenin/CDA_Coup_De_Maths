@@ -7,9 +7,7 @@ public record StudentDto(
         String name,
         String email,
         String password,
-        int credits,
-        List<QuestionDto> questions,
-        List<TransactionDto> transactions
+        int credits
 
 ) {
 }

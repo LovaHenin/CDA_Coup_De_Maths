@@ -6,4 +6,5 @@ import java.util.ArrayList;
 
 public interface QuestionRepository extends JpaRepository<QuestionRepositoryModel,Long> {
     ArrayList<QuestionRepositoryModel> findAll();
+    QuestionRepositoryModel save(QuestionRepositoryModel questionRepositoryModel);
 }

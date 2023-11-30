@@ -48,6 +48,13 @@ public class StudentRepositoryModel {
     @OneToMany(mappedBy = "student", orphanRemoval = true)
     private List<TransactionRepositoryModel> transactions;
 
+    public StudentRepositoryModel(Long id, String name, String email, String password, int credits) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.credits = credits;
+    }
 
     @Override
     public String toString() {

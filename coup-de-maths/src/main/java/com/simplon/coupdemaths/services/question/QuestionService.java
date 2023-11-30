@@ -23,23 +23,26 @@ public class QuestionService {
     public List<QuestionServiceModel> getAll(){
         List<QuestionRepositoryModel> questionRepositoryModels = questionRepository.findAll();
 
-
-        return  questionRepositoryModels.stream().map((value)-> CdmMapper.INSTANCE.repoToService(value)).collect(Collectors.toList());
+/*
+        return questionRepositoryModels.stream().map((value)-> CdmMapper.INSTANCE.repoToService(value)).collect(Collectors.toList());*/
+        return null;
     }
 
-    public boolean insererQuestion(QuestionServiceModel questionServiceModel) {
 
-        Optional<StudentRepositoryModel> student = studentRepository.findById(questionServiceModel.getStudentId().get());
-        StudentServiceModel studentServiceModel= CdmMapper.INSTANCE.repoToService(student.get());
+    public boolean addQuestion(QuestionServiceModel questionServiceModel) {
 
-        questionServiceModel.setStudent(Optional.ofNullable(studentServiceModel) );
-
-
-        QuestionRepositoryModel questionRepositoryModel=CdmMapper.INSTANCE.serviceToRepo(questionServiceModel);
-
-        // si l'id n'est pas sauvegardé tu m'apelle
-
-        QuestionRepositoryModel questionRepositoryModel1 =questionRepository.save(questionRepositoryModel);
-        return  questionRepositoryModel1!=null;
+//        Optional<StudentRepositoryModel> student = studentRepository.findById(questionServiceModel.getStudentId().get());
+//        StudentServiceModel studentServiceModel= CdmMapper.INSTANCE.repoToService(student.get());
+//
+//        questionServiceModel.setStudent(Optional.ofNullable(studentServiceModel) );
+//
+//
+//        QuestionRepositoryModel questionRepositoryModel=CdmMapper.INSTANCE.serviceToRepo(questionServiceModel);
+//
+//        // si l'id n'est pas sauvegardé tu m'apelle
+//
+//        QuestionRepositoryModel questionRepositoryModel1 =questionRepository.save(questionRepositoryModel);
+//        return  questionRepositoryModel1!=null;
+        return true;
     }
 }

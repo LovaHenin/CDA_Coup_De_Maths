@@ -17,53 +17,54 @@ import com.simplon.coupdemaths.services.question.QuestionServiceModel;
 import com.simplon.coupdemaths.services.response.ResponseServiceModel;
 import com.simplon.coupdemaths.services.student.StudentServiceModel;
 import com.simplon.coupdemaths.services.transaction.TransactionServiceModel;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 import java.util.Optional;
 
-@Mapper
+@Mapper( nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_NULL )
 public interface CdmMapper {
     CdmMapper INSTANCE = Mappers.getMapper(CdmMapper.class);
 
-                                     // BDD to the Front
-
-
+                  /*                   // BDD to the Front
     /*
     List<QuestionServiceModel> repoToService(List<QuestionRepositoryModel> questionRepositoryModels);
     List<QuestionRepositoryModel> serviceToRepo(List<QuestionServiceModel> questionServiceModels);
 
     List<QuestionDto>  serviceToDto(List<QuestionServiceModel> questionServiceModels);
 
-    List<QuestionServiceModel>  dtoToService (List<QuestionDto> questionDtos);*/
+    List<QuestionServiceModel>  dtoToService (List<QuestionDto> questionDtos);
 
     //Student
+    /*
+    @Mapping(source="questions", target="questions", qualifiedByName = "typeToOptionalList")
+    @Mapping(source="transactions", target="transactions", qualifiedByName = "typeToOptionalList")
     StudentServiceModel repoToService(StudentRepositoryModel studentRepositoryModel);
+/
+
     StudentDto serviceToDto(StudentServiceModel studentServiceModel);
 
     //professor
-    ProfessorServiceModel repoToService(ProfessorRepositoryModel professorRepositoryModel);
+    //ProfessorServiceModel repoToService(ProfessorRepositoryModel professorRepositoryModel);
     ProfessorDto serviceToDto(ProfessorServiceModel professorServiceModel);
 
     // response
-    ResponseServiceModel repoToService(ResponseRepositoryModel responseRepositoryModel);
+    //ResponseServiceModel repoToService(ResponseRepositoryModel responseRepositoryModel);
     ResponseDto serviceToDto(ResponseServiceModel responseServiceModel);
 
     //DocDiplome
-    DocDiplomeServiceModel repoToService(DocDiplomeRepositoryModel docDiplomeRepositoryModel);
+    //DocDiplomeServiceModel repoToService(DocDiplomeRepositoryModel docDiplomeRepositoryModel);
     DocDiplomeDto serviceToDto(DocDiplomeServiceModel docDiplomeServiceModel);
     //Doc Question
     DocQuestionServiceModel repoToservice (DocQuestionRepositoryModel docQuestionRepositoryModel);
     DocQuestionDto serviceToDto(DocQuestionServiceModel docQuestionServiceModel);
 
     //DocResponse
-    DocResponseServiceModel repoToService(DocResponseRepositoryModel docResponseRepositoryModel);
+    //DocResponseServiceModel repoToService(DocResponseRepositoryModel docResponseRepositoryModel);
     DocResponseDto serviceToDto(DocResponseServiceModel docResponseServiceModel);
     //Transaction
-    TransactionServiceModel repoToService(TransactionRepositoryModel transactionRepositoryModel);
+    //TransactionServiceModel repoToService(TransactionRepositoryModel transactionRepositoryModel);
     TransactionDto serviceToDto(TransactionServiceModel transactionServiceModel);
 
 
@@ -71,7 +72,13 @@ public interface CdmMapper {
 
 
     // Student
+
+
     StudentServiceModel dtoToService(StudentDto studentDto);
+
+
+    @Mapping(source="questions", target="questions", qualifiedByName = "optionalToTypeList")
+    @Mapping(source="transactions", target="transactions", qualifiedByName = "optionalToTypeList")
     StudentRepositoryModel serviceToRepo(StudentServiceModel studentServiceModel);
 
     // Professor
@@ -121,5 +128,13 @@ public interface CdmMapper {
     default <T> Optional<T> typeToOptional(T source) throws Exception {
         return Optional.ofNullable(source);
     }
-
+    @Named("optionalToTypeList")
+    default <T> List<T> optionalToTypeList(Optional<List<T>> source) throws Exception {
+        return source.orElse(null);
+    }
+    @Named("typeToOptionalList")
+    default <T> Optional<List<T>> typeToOptionalList(List<T> source) throws Exception {
+        return Optional.ofNullable(source);
+    }
+    */
 }

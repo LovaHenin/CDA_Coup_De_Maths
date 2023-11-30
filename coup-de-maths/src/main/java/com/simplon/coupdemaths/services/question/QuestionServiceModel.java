@@ -1,5 +1,6 @@
 package com.simplon.coupdemaths.services.question;
 
+import com.simplon.coupdemaths.dto.DocQuestionDto;
 import com.simplon.coupdemaths.enums.LevelEnum;
 import com.simplon.coupdemaths.enums.QuestionTypeEnum;
 import com.simplon.coupdemaths.services.doc.DocQuestionServiceModel;
@@ -33,14 +34,18 @@ public class QuestionServiceModel {
     // Student who created the question
     private Optional <StudentServiceModel> student;
 
+
     private Optional <Long> studentId;
 
 
     // List of documents related to the question
-    private List<DocQuestionServiceModel> docs;
+   private List<DocQuestionServiceModel> docs;
 
     // List of responses to the question
     private List<ResponseServiceModel> responses;
+
+    public QuestionServiceModel(String question, String level, LocalDateTime localDateTime, Long aLong, List<DocQuestionDto> docs) {
+    }
 
     protected boolean canEqual(final Object other) {
         return other instanceof QuestionServiceModel;

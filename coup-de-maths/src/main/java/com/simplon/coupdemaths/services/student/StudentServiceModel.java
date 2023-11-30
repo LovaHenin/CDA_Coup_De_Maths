@@ -6,8 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
-
+import java.util.Optional;
 
 
 @Data
@@ -29,8 +30,20 @@ public class StudentServiceModel {
     private int credits;
 
     // List of questions posted by the student
-    private List<QuestionServiceModel> questions ;
+    private Optional<List<QuestionServiceModel>> questions ; // ++++
 
     // List of transactions associated with the student
-    private List<TransactionServiceModel> transactions ;
+    private Optional<List<TransactionServiceModel>> transactions ;
+
+    public StudentServiceModel(Long id, String name, String email, String password, int credits, Optional<List<QuestionServiceModel>> questions, Optional<List<TransactionServiceModel>> transactions) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.credits = credits;
+        this.questions = questions;
+        this.transactions = transactions;
+    }
+
+
 }
