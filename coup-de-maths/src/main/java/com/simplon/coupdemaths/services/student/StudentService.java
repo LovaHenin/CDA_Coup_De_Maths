@@ -1,19 +1,18 @@
 package com.simplon.coupdemaths.services.student;
 
-import com.simplon.coupdemaths.dto.QuestionDto;
 import com.simplon.coupdemaths.mapper.CdmMapper;
-import com.simplon.coupdemaths.repositories.doc.DocQuestionRepository;
 import com.simplon.coupdemaths.repositories.question.QuestionRepository;
 import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepository;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.question.QuestionService;
-import com.simplon.coupdemaths.services.question.QuestionServiceModel;
+import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
+import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -40,10 +39,22 @@ public class StudentService {
     }
 
     public boolean addQuestionByStudent(QuestionServiceModel questionServiceModel) {
-        //mapper
-        QuestionRepositoryModel questionRepositoryModel = new QuestionRepositoryModel(questionServiceModel.getQuestion(), questionServiceModel.getLevel(), questionServiceModel.getQuestionType(), questionServiceModel.getQuestionDate(), questionServiceModel.getStudentId(), questionServiceModel.getDocs());
+
+        // Retrieve the student from the database
+        StudentRepositoryModel student = studentRepository.findById(questionServiceModel.getStudentId())
+                .orElseThrow(() -> new EntityNotFoundException("Student not found with id: " + questionServiceModel.getStudentId()));
+
+        StudentServiceModel studentServiceModel = CdmMapper.INSTANCE.repoToService(student);
+
+        // Associate the student with the question
+        questionServiceModel.setStudent(studentServiceModel);
+
+
+        QuestionRepositoryModel questionRepositoryModel =StudentServiceMapper.INSTANCE.questionServiceModelToQuestionRepositoryModel(questionServiceModel);
 
 
         questionRepository.save(questionRepositoryModel);
+        return true;
     }
+
 }

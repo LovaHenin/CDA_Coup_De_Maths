@@ -3,10 +3,9 @@ package com.simplon.coupdemaths.services.response;
 
 import com.simplon.coupdemaths.services.doc.DocResponseServiceModel;
 import com.simplon.coupdemaths.services.professor.ProfessorServiceModel;
-import com.simplon.coupdemaths.services.question.QuestionServiceModel;
+import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;

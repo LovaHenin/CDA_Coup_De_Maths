@@ -1,32 +1,14 @@
 package com.simplon.coupdemaths.mapper;
 
-import com.simplon.coupdemaths.dto.*;
-import com.simplon.coupdemaths.repositories.doc.DocDiplomeRepositoryModel;
-import com.simplon.coupdemaths.repositories.doc.DocQuestionRepositoryModel;
-import com.simplon.coupdemaths.repositories.doc.DocResponseRepositoryModel;
-import com.simplon.coupdemaths.repositories.professor.ProfessorRepositoryModel;
-import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
-import com.simplon.coupdemaths.repositories.response.ResponseRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.repositories.transaction.TransactionRepositoryModel;
-import com.simplon.coupdemaths.services.doc.DocDiplomeServiceModel;
-import com.simplon.coupdemaths.services.doc.DocQuestionServiceModel;
-import com.simplon.coupdemaths.services.doc.DocResponseServiceModel;
-import com.simplon.coupdemaths.services.professor.ProfessorServiceModel;
-import com.simplon.coupdemaths.services.question.QuestionServiceModel;
-import com.simplon.coupdemaths.services.response.ResponseServiceModel;
-import com.simplon.coupdemaths.services.student.StudentServiceModel;
-import com.simplon.coupdemaths.services.transaction.TransactionServiceModel;
+import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
-
-import java.util.List;
-import java.util.Optional;
 
 @Mapper( nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_NULL )
 public interface CdmMapper {
     CdmMapper INSTANCE = Mappers.getMapper(CdmMapper.class);
-
+    StudentServiceModel repoToService(StudentRepositoryModel studentRepositoryModel);
                   /*                   // BDD to the Front
     /*
     List<QuestionServiceModel> repoToService(List<QuestionRepositoryModel> questionRepositoryModels);
@@ -40,8 +22,10 @@ public interface CdmMapper {
     /*
     @Mapping(source="questions", target="questions", qualifiedByName = "typeToOptionalList")
     @Mapping(source="transactions", target="transactions", qualifiedByName = "typeToOptionalList")
-    StudentServiceModel repoToService(StudentRepositoryModel studentRepositoryModel);
-/
+
+                   */
+
+/*
 
     StudentDto serviceToDto(StudentServiceModel studentServiceModel);
 

@@ -1,11 +1,9 @@
 package com.simplon.coupdemaths.repositories.question;
 
-import com.simplon.coupdemaths.enums.LevelEnum;
-import com.simplon.coupdemaths.enums.QuestionTypeEnum;
 import com.simplon.coupdemaths.repositories.doc.DocQuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.response.ResponseRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.doc.DocQuestionServiceModel;
+import com.simplon.coupdemaths.services.student.model.DocQuestionServiceModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -56,8 +54,7 @@ public class QuestionRepositoryModel {
     @OneToMany(mappedBy = "question", orphanRemoval = true)
     private List<ResponseRepositoryModel> responses;
 
-    public QuestionRepositoryModel(String question, String level, String questionType, LocalDateTime questionDate, Optional<Long> studentId, List<DocQuestionServiceModel> docs) {
-    }
+
 
     // PrePersist method to set the question date before persisting in the database
     @PrePersist

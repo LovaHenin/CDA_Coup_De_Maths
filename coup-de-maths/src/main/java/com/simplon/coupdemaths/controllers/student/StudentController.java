@@ -1,18 +1,16 @@
 package com.simplon.coupdemaths.controllers.student;
 
-import com.simplon.coupdemaths.dto.QuestionDto;
+import com.simplon.coupdemaths.controllers.student.dto.QuestionDto;
 import com.simplon.coupdemaths.dto.StudentDto;
-import com.simplon.coupdemaths.mapper.CdmMapper;
 import com.simplon.coupdemaths.services.question.QuestionService;
-import com.simplon.coupdemaths.services.question.QuestionServiceModel;
+import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
 import com.simplon.coupdemaths.services.student.StudentService;
-import com.simplon.coupdemaths.services.student.StudentServiceModel;
+import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("student")
@@ -22,6 +20,9 @@ public class StudentController {
     StudentService studentService;
     @Autowired
     QuestionService questionService;
+
+
+
     @GetMapping
 public List<StudentDto> findAll(){
 /*
@@ -32,15 +33,16 @@ public List<StudentDto> findAll(){
 }
 @PostMapping
 public  boolean newStudent(@RequestBody StudentDto studentDto){
-        StudentServiceModel studentServiceModel = new StudentServiceModel(studentDto.id(),
-                studentDto.name(),studentDto.email(),studentDto.password(),studentDto.credits(), Optional.empty(),Optional.empty());
-        return studentService.insererStudent(studentServiceModel);
+
+       // return studentService.insererStudent(studentServiceModel);
+    return false;
 }
 
     @PostMapping("/{id}/questions")
     public boolean AddQuestionByStudent(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
 
-        QuestionServiceModel questionServiceModel = new QuestionServiceModel(questionDto.question(),questionDto.level(),questionDto.questionDate(),questionDto.studentId(),questionDto.docs());
+       QuestionServiceModel questionServiceModel = StudentMapper.INSTANCE.questionDtoToQuestionServiceModel(questionDto);
+
 
         return studentService.addQuestionByStudent(questionServiceModel);
 

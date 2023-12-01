@@ -1,17 +1,13 @@
 package com.simplon.coupdemaths.services.question;
 
-import com.simplon.coupdemaths.mapper.CdmMapper;
 import com.simplon.coupdemaths.repositories.question.QuestionRepository;
 import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepository;
-import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.student.StudentServiceModel;
+import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {

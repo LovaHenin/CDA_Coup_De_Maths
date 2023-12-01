@@ -1,13 +1,11 @@
 package com.simplon.coupdemaths.services.doc;
 
-import com.simplon.coupdemaths.mapper.CdmMapper;
 import com.simplon.coupdemaths.repositories.doc.DocQuestionRepository;
-import com.simplon.coupdemaths.repositories.doc.DocQuestionRepositoryModel;
+import com.simplon.coupdemaths.services.student.model.DocQuestionServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DocQuestionService {

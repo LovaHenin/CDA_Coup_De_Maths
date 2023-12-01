@@ -1,9 +1,7 @@
-package com.simplon.coupdemaths.services.doc;
+package com.simplon.coupdemaths.services.student.model;
 
-import com.simplon.coupdemaths.services.question.QuestionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +16,5 @@ public class DocQuestionServiceModel {
     private String documentPath;
 
     // Question to which the document is related
-    private QuestionServiceModel question;
+   private QuestionServiceModel question;
 }
