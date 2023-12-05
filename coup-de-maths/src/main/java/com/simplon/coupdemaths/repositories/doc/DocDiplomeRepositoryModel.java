@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="document_diplome")
+@Table(name = "document_diplome")
 public class DocDiplomeRepositoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

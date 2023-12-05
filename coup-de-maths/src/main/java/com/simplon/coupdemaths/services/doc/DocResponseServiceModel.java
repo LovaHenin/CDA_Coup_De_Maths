@@ -3,7 +3,6 @@ package com.simplon.coupdemaths.services.doc;
 import com.simplon.coupdemaths.services.response.ResponseServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @Data
 @NoArgsConstructor

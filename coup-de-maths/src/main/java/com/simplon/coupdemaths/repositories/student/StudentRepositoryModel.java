@@ -5,18 +5,12 @@ import com.simplon.coupdemaths.repositories.transaction.TransactionRepositoryMod
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.aspectj.weaver.patterns.TypePatternQuestions;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
-@ToString
 @Table(name = "student")
 public class StudentRepositoryModel {
     // Unique identifier for the student
@@ -48,24 +42,5 @@ public class StudentRepositoryModel {
     @OneToMany(mappedBy = "student", orphanRemoval = true)
     private List<TransactionRepositoryModel> transactions;
 
-    public StudentRepositoryModel(Long id, String name, String email, String password, int credits) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.credits = credits;
-    }
 
-    @Override
-    public String toString() {
-        return "StudentRepositoryModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", credits=" + credits +
-                ", questions=" + questions +
-                ", transactions=" + transactions +
-                '}';
-    }
 }

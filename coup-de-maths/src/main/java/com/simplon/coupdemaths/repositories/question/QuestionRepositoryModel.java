@@ -3,21 +3,17 @@ package com.simplon.coupdemaths.repositories.question;
 import com.simplon.coupdemaths.repositories.doc.DocQuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.response.ResponseRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.student.model.DocQuestionServiceModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "question")
-@ToString
 public class QuestionRepositoryModel {
 
     // Primary key for the Question entity
@@ -47,13 +43,12 @@ public class QuestionRepositoryModel {
     private StudentRepositoryModel student;
 
     // One-to-Many relationship with DocQuestionRepositoryModel for question documents
-    @OneToMany(mappedBy = "question", orphanRemoval = true)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<DocQuestionRepositoryModel> docs;
 
     // One-to-Many relationship with ResponseRepositoryModel for responses to the question
     @OneToMany(mappedBy = "question", orphanRemoval = true)
     private List<ResponseRepositoryModel> responses;
-
 
 
     // PrePersist method to set the question date before persisting in the database

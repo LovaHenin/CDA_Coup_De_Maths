@@ -1,7 +1,6 @@
 package com.simplon.coupdemaths.services.doc;
 
 import com.simplon.coupdemaths.repositories.doc.DocQuestionRepository;
-import com.simplon.coupdemaths.services.student.model.DocQuestionServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,7 @@ public class DocQuestionService {
     @Autowired
     private DocQuestionRepository docQuestionRepository;
 
-    public List<DocQuestionServiceModel> getAll(){
+    public List<DocQuestionServiceModel> getAll() {
         /*
         List<DocQuestionRepositoryModel>docQuestionRepositoryModels=docQuestionRepository.findAll();
         return docQuestionRepositoryModels.stream().map((value)-> CdmMapper.INSTANCE.repoToservice(value)).collect(Collectors.toList());*/

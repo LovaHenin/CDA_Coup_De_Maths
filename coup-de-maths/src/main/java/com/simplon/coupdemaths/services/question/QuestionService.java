@@ -3,7 +3,6 @@ package com.simplon.coupdemaths.services.question;
 import com.simplon.coupdemaths.repositories.question.QuestionRepository;
 import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepository;
-import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +11,11 @@ import java.util.List;
 @Service
 public class QuestionService {
     @Autowired
-    private QuestionRepository questionRepository;
-     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    private QuestionRepository questionRepository;
 
-    public List<QuestionServiceModel> getAll(){
+    public List<QuestionServiceModel> getAll() {
         List<QuestionRepositoryModel> questionRepositoryModels = questionRepository.findAll();
 
 /*

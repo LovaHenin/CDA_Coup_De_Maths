@@ -1,4 +1,4 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.services.doc;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +16,5 @@ public class DocQuestionServiceModel {
     private String documentPath;
 
     // Question to which the document is related
-   private QuestionServiceModel question;
+    // private QuestionServiceModel question;
 }

@@ -2,7 +2,7 @@ package com.simplon.coupdemaths.controllers.question;
 
 import com.simplon.coupdemaths.controllers.student.dto.QuestionDto;
 import com.simplon.coupdemaths.services.question.QuestionService;
-import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
+import com.simplon.coupdemaths.services.question.QuestionServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +25,7 @@ public class QuestionController {
     }
 
     @PostMapping
-    public boolean newQuestion(@RequestBody QuestionDto questionDto){
+    public boolean newQuestion(@RequestBody QuestionDto questionDto) {
 /*
         QuestionServiceModel questionServiceModel = CdmMapper.INSTANCE.dtoToService(questionDto);
         return questionService.addQuestion(questionServiceModel);*/

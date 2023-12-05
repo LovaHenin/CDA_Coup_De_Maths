@@ -1,4 +1,5 @@
 package com.simplon.coupdemaths.repositories.response;
+
 import com.simplon.coupdemaths.repositories.doc.DocResponseRepositoryModel;
 import com.simplon.coupdemaths.repositories.professor.ProfessorRepositoryModel;
 import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
@@ -13,7 +14,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="response")
+@Table(name = "response")
 public class ResponseRepositoryModel {
     // Unique identifier for the response
     @Id

@@ -1,7 +1,10 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.services.question;
 
+import com.simplon.coupdemaths.services.doc.DocQuestionServiceModel;
 import com.simplon.coupdemaths.services.response.ResponseServiceModel;
-import lombok.*;
+import com.simplon.coupdemaths.services.student.StudentServiceModel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,7 +36,7 @@ public class QuestionServiceModel {
 
 
     // List of documents related to the question
-   private List<DocQuestionServiceModel> docs;
+    private List<DocQuestionServiceModel> docs;
 
     // List of responses to the question
     private List<ResponseServiceModel> responses;
