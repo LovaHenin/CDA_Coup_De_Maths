@@ -1,6 +1,5 @@
 package com.simplon.coupdemaths.services.transaction;
 
-import com.simplon.coupdemaths.enums.TransactionTypeEnum;
 import com.simplon.coupdemaths.services.professor.ProfessorServiceModel;
 import com.simplon.coupdemaths.services.student.StudentServiceModel;
 import lombok.Data;

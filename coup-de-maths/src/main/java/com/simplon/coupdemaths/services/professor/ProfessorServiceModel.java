@@ -6,7 +6,6 @@ import com.simplon.coupdemaths.services.response.ResponseServiceModel;
 import com.simplon.coupdemaths.services.transaction.TransactionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -31,11 +30,11 @@ public class ProfessorServiceModel {
     private int credits;
 
     // List of responses provided by the professor
-    private List<ResponseServiceModel> responses ;
+    private List<ResponseServiceModel> responses;
 
     // List of transactions associated with the professor
-    private List<TransactionServiceModel> transactions ;
+    private List<TransactionServiceModel> transactions;
 
     // List of diploma documents associated with the professor
-    private List<DocDiplomeServiceModel> docDiplomes ;
+    private List<DocDiplomeServiceModel> docDiplomes;
 }

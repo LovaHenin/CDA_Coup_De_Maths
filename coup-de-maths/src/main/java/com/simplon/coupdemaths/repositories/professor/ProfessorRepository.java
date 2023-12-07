@@ -2,5 +2,5 @@ package com.simplon.coupdemaths.repositories.professor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProfessorRepository extends JpaRepository<ProfessorRepositoryModel,Long> {
+public interface ProfessorRepository extends JpaRepository<ProfessorRepositoryModel, Long> {
 }

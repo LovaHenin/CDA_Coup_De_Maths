@@ -6,7 +6,6 @@ import com.simplon.coupdemaths.services.professor.ProfessorServiceModel;
 import com.simplon.coupdemaths.services.question.QuestionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;

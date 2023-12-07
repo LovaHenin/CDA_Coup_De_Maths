@@ -1,15 +1,13 @@
 package com.simplon.coupdemaths.services.question;
 
-import com.simplon.coupdemaths.enums.LevelEnum;
-import com.simplon.coupdemaths.enums.QuestionTypeEnum;
 import com.simplon.coupdemaths.services.doc.DocQuestionServiceModel;
 import com.simplon.coupdemaths.services.response.ResponseServiceModel;
 import com.simplon.coupdemaths.services.student.StudentServiceModel;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -31,9 +29,10 @@ public class QuestionServiceModel {
 
 
     // Student who created the question
-    private Optional <StudentServiceModel> student;
+    private StudentServiceModel student;
 
-    private Optional <Long> studentId;
+
+    private Long studentId;
 
 
     // List of documents related to the question
@@ -42,8 +41,5 @@ public class QuestionServiceModel {
     // List of responses to the question
     private List<ResponseServiceModel> responses;
 
-    protected boolean canEqual(final Object other) {
-        return other instanceof QuestionServiceModel;
-    }
 
 }
