@@ -13,8 +13,10 @@ public class DocResponseRepositoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "name")
     private String documentName;
+
     @Column(name = "path")
     private String documentPath;
 

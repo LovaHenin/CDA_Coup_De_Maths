@@ -1,26 +1,42 @@
 package com.simplon.coupdemaths.controllers.question;
 
-import com.simplon.coupdemaths.dto.QuestionDto;
-import com.simplon.coupdemaths.mapper.CdmMapper;
+import com.simplon.coupdemaths.controllers.student.dto.QuestionDto;
+import com.simplon.coupdemaths.controllers.student.dto.StudentDto;
+import com.simplon.coupdemaths.mapper.FullMapper;
 import com.simplon.coupdemaths.services.question.QuestionService;
-import com.simplon.coupdemaths.services.question.QuestionServiceModel;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.simplon.coupdemaths.services.student.StudentService;
+import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
+import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("question")
+@RequiredArgsConstructor
+@RequestMapping("api/question")
 public class QuestionController {
-    @Autowired
-    QuestionService questionService;
 
-    @PostMapping
-    public boolean newQuestion(@RequestBody QuestionDto questionDto){
+    private final QuestionService questionService;
 
-        QuestionServiceModel questionServiceModel = CdmMapper.INSTANCE.dtoToService(questionDto);
-        return questionService.insererQuestion(questionServiceModel);
+    @GetMapping
+    public List<QuestionDto> findAll(){
+        List<QuestionServiceModel> questionServiceModels = questionService.getAll();
+        List<QuestionDto> questionDtos = questionServiceModels.stream().map(FullMapper.INSTANCE::questionServiceToQuestionDto).collect(Collectors.toList());
+        return questionDtos;
     }
 
+    @GetMapping("{id}")
+    public QuestionDto findById(@PathVariable("id") Long id){
+        QuestionServiceModel questionServiceModel = questionService.findById(id);
+        QuestionDto questionDto = FullMapper.INSTANCE.questionServiceToQuestionDto(questionServiceModel);
+        return questionDto;
+    }
+
+    @PostMapping
+    public boolean newStudent(@RequestBody QuestionDto questionDto){
+        QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionDtoToQuestionService(questionDto);
+        return questionService.add(questionServiceModel);
+    }
 }

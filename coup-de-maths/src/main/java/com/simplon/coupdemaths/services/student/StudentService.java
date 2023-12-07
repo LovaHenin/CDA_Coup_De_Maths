@@ -1,31 +1,40 @@
 package com.simplon.coupdemaths.services.student;
 
-import com.simplon.coupdemaths.mapper.CdmMapper;
-import com.simplon.coupdemaths.repositories.doc.DocQuestionRepository;
-import com.simplon.coupdemaths.repositories.question.QuestionRepository;
+import com.simplon.coupdemaths.mapper.FullMapper;
 import com.simplon.coupdemaths.repositories.student.StudentRepository;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class StudentService {
-    @Autowired
-    StudentRepository studentRepository;
+
+    private final StudentRepository studentRepository;
 
 
     public List<StudentServiceModel> getAll(){
         List<StudentRepositoryModel> studentRepositoryModels = studentRepository.findAll();
-        return studentRepositoryModels.stream().map(CdmMapper.INSTANCE::repoToService).collect(Collectors.toList());
+        List<StudentServiceModel> studentServiceModels = studentRepositoryModels.stream().map(FullMapper.INSTANCE::studentRepositoryToStudentService).collect(Collectors.toList());
+        return studentServiceModels;
+    }
+
+    public StudentServiceModel findById(Long id) {
+        StudentRepositoryModel studentRepositoryModels = studentRepository.findById(id).orElseThrow();
+        StudentServiceModel studentServiceModel = FullMapper.INSTANCE.studentRepositoryToStudentService(studentRepositoryModels);
+        return studentServiceModel;
     }
 
     public boolean insererStudent(StudentServiceModel studentServiceModel) {
+        StudentRepositoryModel studentRepositoryModel = FullMapper.INSTANCE.studentServiceToStudentRepository(studentServiceModel);
+        StudentRepositoryModel newstudentRepositoryModel = studentRepository.save(studentRepositoryModel);
 
-        StudentRepositoryModel studentRepositoryModel =CdmMapper.INSTANCE.serviceToRepo(studentServiceModel);
-        StudentRepositoryModel studentRepositoryModel1=studentRepository.save(studentRepositoryModel);
-        return studentRepositoryModel1!=null;
+        return newstudentRepositoryModel != null;
     }
+
+
 }

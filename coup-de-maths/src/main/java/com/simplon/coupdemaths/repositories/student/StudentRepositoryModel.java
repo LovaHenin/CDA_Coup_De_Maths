@@ -16,7 +16,6 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@ToString
 @Table(name = "student")
 public class StudentRepositoryModel {
     // Unique identifier for the student
@@ -48,17 +47,4 @@ public class StudentRepositoryModel {
     @OneToMany(mappedBy = "student", orphanRemoval = true)
     private List<TransactionRepositoryModel> transactions;
 
-
-    @Override
-    public String toString() {
-        return "StudentRepositoryModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", credits=" + credits +
-                ", questions=" + questions +
-                ", transactions=" + transactions +
-                '}';
-    }
 }
