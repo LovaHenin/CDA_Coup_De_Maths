@@ -23,7 +23,4 @@ public class DocQuestionRepositoryModel {
     @ManyToOne
     @JoinColumn(name = "question_id")
     private QuestionRepositoryModel question;
-
-    public DocQuestionRepositoryModel() {
-    }
 }

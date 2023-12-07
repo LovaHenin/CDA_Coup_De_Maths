@@ -1,45 +1,52 @@
 package com.simplon.coupdemaths.services.question;
 
-import com.simplon.coupdemaths.mapper.CdmMapper;
+import com.simplon.coupdemaths.mapper.FullMapper;
+import com.simplon.coupdemaths.repositories.doc.DocQuestionRepository;
+import com.simplon.coupdemaths.repositories.doc.DocQuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.question.QuestionRepository;
 import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
-import com.simplon.coupdemaths.repositories.student.StudentRepository;
-import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.student.StudentServiceModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class QuestionService {
-    @Autowired
-    private QuestionRepository questionRepository;
-     @Autowired
-    StudentRepository studentRepository;
+
+    private final QuestionRepository questionRepository;
+
+    private final DocQuestionRepository docQuestionRepository;
 
     public List<QuestionServiceModel> getAll(){
         List<QuestionRepositoryModel> questionRepositoryModels = questionRepository.findAll();
-
-
-        return  questionRepositoryModels.stream().map((value)-> CdmMapper.INSTANCE.repoToService(value)).collect(Collectors.toList());
+        List<QuestionServiceModel> questionServiceModels = questionRepositoryModels.stream().map(FullMapper.INSTANCE::questionRepositoryToQuestionServiceModel).collect(Collectors.toList());
+        return questionServiceModels;
     }
 
-    public boolean insererQuestion(QuestionServiceModel questionServiceModel) {
+    public QuestionServiceModel findById(Long id) {
+        QuestionRepositoryModel questionRepositoryModel = questionRepository.findById(id).orElseThrow();
+        QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionRepositoryToQuestionServiceModel(questionRepositoryModel);
+        return questionServiceModel;
+    }
 
-        Optional<StudentRepositoryModel> student = studentRepository.findById(questionServiceModel.getStudentId().get());
-        StudentServiceModel studentServiceModel= CdmMapper.INSTANCE.repoToService(student.get());
+    public boolean add(QuestionServiceModel questionServiceModel) {
+        QuestionRepositoryModel questionRepositoryModel = FullMapper.INSTANCE.questionServiceToQuestionRepository(questionServiceModel);
 
-        questionServiceModel.setStudent(Optional.ofNullable(studentServiceModel) );
+        List<DocQuestionRepositoryModel> docQuestionRepositoryModels = questionRepositoryModel.getDocs();
+
+        for(DocQuestionRepositoryModel docQuestionRepositoryModel : docQuestionRepositoryModels){
+            docQuestionRepositoryModel.setQuestion(questionRepositoryModel);
+        }
+
+        QuestionRepositoryModel newQuestionRepositoryModel = questionRepository.save(questionRepositoryModel);
 
 
-        QuestionRepositoryModel questionRepositoryModel=CdmMapper.INSTANCE.serviceToRepo(questionServiceModel);
 
-        // si l'id n'est pas sauvegardé tu m'apelle
+//        docQuestionRepositoryModels.stream().map((value) -> docQuestionRepository.save(value));
 
-        QuestionRepositoryModel questionRepositoryModel1 =questionRepository.save(questionRepositoryModel);
-        return  questionRepositoryModel1!=null;
+        return newQuestionRepositoryModel !=null;
     }
 }

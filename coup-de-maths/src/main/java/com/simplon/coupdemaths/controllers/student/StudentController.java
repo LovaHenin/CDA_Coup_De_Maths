@@ -1,30 +1,40 @@
 package com.simplon.coupdemaths.controllers.student;
 
-import com.simplon.coupdemaths.dto.StudentDto;
-import com.simplon.coupdemaths.mapper.CdmMapper;
+import com.simplon.coupdemaths.controllers.student.dto.StudentDto;
+import com.simplon.coupdemaths.mapper.FullMapper;
 import com.simplon.coupdemaths.services.student.StudentService;
-import com.simplon.coupdemaths.services.student.StudentServiceModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("student")
+@RequiredArgsConstructor
+@RequestMapping("api/student")
 public class StudentController {
 
-    @Autowired
-    StudentService studentService;
-    @GetMapping
-public List<StudentDto> findAll(){
+    private final StudentService studentService;
 
-   return studentService.getAll().stream().map(CdmMapper.INSTANCE::serviceToDto).collect(Collectors.toList());
-}
-@PostMapping
-public  boolean newStudent(@RequestBody StudentDto studentDto){
-        StudentServiceModel studentServiceModel =CdmMapper.INSTANCE.dtoToService(studentDto);
+    @GetMapping
+    public List<StudentDto> findAll(){
+        List<StudentServiceModel> studentServiceModels = studentService.getAll();
+        List<StudentDto> studentDtos = studentServiceModels.stream().map(FullMapper.INSTANCE::studentServiceToStudentDto).collect(Collectors.toList());
+       return studentDtos;
+    }
+
+    @GetMapping("{id}")
+    public StudentDto findById(@PathVariable("id") Long id){
+        StudentServiceModel studentServiceModel = studentService.findById(id);
+        StudentDto student = FullMapper.INSTANCE.studentServiceToStudentDto(studentServiceModel);
+        return student;
+    }
+
+    @PostMapping
+    public boolean newStudent(@RequestBody StudentDto studentDto){
+        StudentServiceModel studentServiceModel = FullMapper.INSTANCE.studentDtoToStudentService(studentDto);
         return studentService.insererStudent(studentServiceModel);
-}
+    }
 
 }

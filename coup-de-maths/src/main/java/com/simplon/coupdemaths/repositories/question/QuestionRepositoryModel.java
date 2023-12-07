@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -47,8 +48,8 @@ public class QuestionRepositoryModel {
     private StudentRepositoryModel student;
 
     // One-to-Many relationship with DocQuestionRepositoryModel for question documents
-    @OneToMany(mappedBy = "question", orphanRemoval = true)
-    private List<DocQuestionRepositoryModel> docs;
+    @OneToMany(mappedBy = "question",cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<DocQuestionRepositoryModel> docs = new ArrayList<>();
 
     // One-to-Many relationship with ResponseRepositoryModel for responses to the question
     @OneToMany(mappedBy = "question", orphanRemoval = true)

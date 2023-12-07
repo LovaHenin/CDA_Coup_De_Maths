@@ -33,15 +33,12 @@ public class TransactionRepositoryModel {
 
     // Student involved in the transaction
     @ManyToOne
-    @JoinColumn(name = "student_id",
-            foreignKey = @jakarta.persistence
-                    .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "student_id")
     private StudentRepositoryModel student;
 
     // Professor involved in the transaction
     @ManyToOne
-    @JoinColumn(name = "professor_id",foreignKey = @jakarta.persistence
-            .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "professor_id")
     private ProfessorRepositoryModel professor;
 
     // PrePersist method to set the transaction date before persisting in the database
