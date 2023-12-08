@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1dec4fbc-54cc-42cf-9ae5-a7a0ad8a222d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/student/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/mapper/CdmMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/mapper/CdmMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/question/QuestionRepositoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/question/QuestionRepositoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/student/StudentRepositoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/student/StudentRepositoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/model/DocQuestionServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/model/DocQuestionServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/model/QuestionServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/model/QuestionServiceModel.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": -1
+}]]></component>
+  <component name="ProjectId" id="2Z7FE7SFDdoArC7PVgD8LYZlpSP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/question"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dec4fbc-54cc-42cf-9ae5-a7a0ad8a222d" name="Changes" comment="" />
+      <created>1701765098849</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701765098849</updated>
+    </task>
+    <servers />
+  </component>
+</project>

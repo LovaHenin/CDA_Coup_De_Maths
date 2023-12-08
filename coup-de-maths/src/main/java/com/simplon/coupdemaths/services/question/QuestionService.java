@@ -5,7 +5,7 @@ import com.simplon.coupdemaths.repositories.doc.DocQuestionRepository;
 import com.simplon.coupdemaths.repositories.doc.DocQuestionRepositoryModel;
 import com.simplon.coupdemaths.repositories.question.QuestionRepository;
 import com.simplon.coupdemaths.repositories.question.QuestionRepositoryModel;
-import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
+import com.simplon.coupdemaths.services.model.QuestionServiceModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,17 +22,17 @@ public class QuestionService {
 
     public List<QuestionServiceModel> getAll(){
         List<QuestionRepositoryModel> questionRepositoryModels = questionRepository.findAll();
-        List<QuestionServiceModel> questionServiceModels = questionRepositoryModels.stream().map(FullMapper.INSTANCE::questionRepositoryToQuestionServiceModel).collect(Collectors.toList());
+        List<QuestionServiceModel> questionServiceModels = questionRepositoryModels.stream().map(FullMapper.INSTANCE::questionRepositoryToQuestionService).collect(Collectors.toList());
         return questionServiceModels;
     }
 
     public QuestionServiceModel findById(Long id) {
         QuestionRepositoryModel questionRepositoryModel = questionRepository.findById(id).orElseThrow();
-        QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionRepositoryToQuestionServiceModel(questionRepositoryModel);
+        QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionRepositoryToQuestionService(questionRepositoryModel);
         return questionServiceModel;
     }
 
-    public boolean add(QuestionServiceModel questionServiceModel) {
+    public boolean addQuestionByStudent(QuestionServiceModel questionServiceModel) {
         QuestionRepositoryModel questionRepositoryModel = FullMapper.INSTANCE.questionServiceToQuestionRepository(questionServiceModel);
 
         List<DocQuestionRepositoryModel> docQuestionRepositoryModels = questionRepositoryModel.getDocs();

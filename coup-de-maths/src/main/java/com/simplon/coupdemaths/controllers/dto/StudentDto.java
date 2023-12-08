@@ -1,7 +1,5 @@
-package com.simplon.coupdemaths.controllers.student.dto;
+package com.simplon.coupdemaths.controllers.dto;
 
-import com.simplon.coupdemaths.services.student.model.QuestionServiceModel;
-import com.simplon.coupdemaths.services.student.model.TransactionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

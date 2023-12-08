@@ -1,4 +1,4 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.services.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

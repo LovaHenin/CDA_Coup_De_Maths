@@ -1,4 +1,4 @@
-package com.simplon.coupdemaths.controllers.student.dto;
+package com.simplon.coupdemaths.controllers.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

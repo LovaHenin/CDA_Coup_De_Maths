@@ -1,4 +1,4 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.services.model;
 
 
 import lombok.Data;
@@ -14,7 +14,7 @@ public class ResponseServiceModel {
     private Long id;
     private String response;
     private LocalDateTime responseDate;
-    // private QuestionServiceModel question;
+    private QuestionServiceModel question;
     private List<DocResponseServiceModel> docs;
     private ProfessorServiceModel professor;
 }

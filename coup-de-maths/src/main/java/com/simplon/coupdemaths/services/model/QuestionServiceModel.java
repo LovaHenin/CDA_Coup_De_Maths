@@ -1,6 +1,5 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.services.model;
 
-import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,7 +13,7 @@ public class QuestionServiceModel {
     private String level;
     private String questionType;
     private LocalDateTime questionDate;
-    private Long studentId;  //--
+    // private Long studentId;  //--
     private StudentServiceModel student; // bouchonné de repo -> service
     private List<DocQuestionServiceModel> docs;
     private List<ResponseServiceModel> responses;

@@ -1,10 +1,14 @@
 package com.simplon.coupdemaths.controllers.student;
 
-import com.simplon.coupdemaths.controllers.student.dto.StudentDto;
+import com.simplon.coupdemaths.controllers.dto.QuestionDto;
+import com.simplon.coupdemaths.controllers.dto.StudentDto;
 import com.simplon.coupdemaths.mapper.FullMapper;
+import com.simplon.coupdemaths.services.model.QuestionServiceModel;
+import com.simplon.coupdemaths.services.question.QuestionService;
 import com.simplon.coupdemaths.services.student.StudentService;
-import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
+import com.simplon.coupdemaths.services.model.StudentServiceModel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +20,8 @@ import java.util.stream.Collectors;
 public class StudentController {
 
     private final StudentService studentService;
+    @Autowired
+    QuestionService questionService;
 
     @GetMapping
     public List<StudentDto> findAll(){
@@ -31,10 +37,16 @@ public class StudentController {
         return student;
     }
 
+//    @PostMapping
+//    public boolean newStudent(@RequestBody StudentDto studentDto){
+//        StudentServiceModel studentServiceModel = FullMapper.INSTANCE.studentDtoToStudentService(studentDto);
+//        return studentService.insererStudent(studentServiceModel);
+//    }
+
     @PostMapping
-    public boolean newStudent(@RequestBody StudentDto studentDto){
-        StudentServiceModel studentServiceModel = FullMapper.INSTANCE.studentDtoToStudentService(studentDto);
-        return studentService.insererStudent(studentServiceModel);
+    public boolean addQuestionByStudent(@RequestBody QuestionDto questionDto){
+        QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionDtoToQuestionService(questionDto);
+        return questionService.addQuestionByStudent(questionServiceModel);
     }
 
 }

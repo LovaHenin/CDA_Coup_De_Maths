@@ -1,12 +1,12 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.controllers.dto;
 
-import com.simplon.coupdemaths.repositories.professor.ProfessorRepositoryModel;
+import com.simplon.coupdemaths.services.model.ProfessorServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class DocDiplomeServiceModel {
+public class DocDiplomeDto {
     private Long id;
     private String documentName;
     private String documentPath;

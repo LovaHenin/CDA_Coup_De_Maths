@@ -1,4 +1,4 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.services.model;
 
 import com.simplon.coupdemaths.repositories.doc.DocDiplomeRepositoryModel;
 import com.simplon.coupdemaths.repositories.response.ResponseRepositoryModel;

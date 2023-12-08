@@ -1,8 +1,7 @@
-package com.simplon.coupdemaths.controllers.student.dto;
+package com.simplon.coupdemaths.controllers.dto;
 
-import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.student.model.DocQuestionServiceModel;
-import com.simplon.coupdemaths.services.student.model.ResponseServiceModel;
+import com.simplon.coupdemaths.services.model.DocQuestionServiceModel;
+import com.simplon.coupdemaths.services.model.ResponseServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

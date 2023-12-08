@@ -1,4 +1,4 @@
-package com.simplon.coupdemaths.services.student.model;
+package com.simplon.coupdemaths.controllers.dto;
 
 import com.simplon.coupdemaths.repositories.professor.ProfessorRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
-public class TransactionServiceModel {
+public class TransactionDto {
     private Long id;
     private LocalDateTime transactionDate;
     private String transactionType;
     private float amount;
-    private StudentRepositoryModel student; // redondant si on viens de student
-    private ProfessorRepositoryModel professor;
+    // private StudentRepositoryModel student;
+    // private ProfessorRepositoryModel professor;
 }

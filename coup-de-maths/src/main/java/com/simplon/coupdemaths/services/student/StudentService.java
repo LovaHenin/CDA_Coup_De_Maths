@@ -3,7 +3,7 @@ package com.simplon.coupdemaths.services.student;
 import com.simplon.coupdemaths.mapper.FullMapper;
 import com.simplon.coupdemaths.repositories.student.StudentRepository;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
-import com.simplon.coupdemaths.services.student.model.StudentServiceModel;
+import com.simplon.coupdemaths.services.model.StudentServiceModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor // avec final
 public class StudentService {
 
     private final StudentRepository studentRepository;
