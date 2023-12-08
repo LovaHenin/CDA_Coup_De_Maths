@@ -24,8 +24,6 @@ INSERT IGNORE INTO document_question (id, question_id, name, path) VALUES
 (1, 1, 'Nom de la fiche n°1', 'path la fiche n°1'),
 (2, 1, 'Nom de la fiche n°2', 'path la fiche n°2');
 
-
-
 INSERT IGNORE INTO document_diplome (id, name, path, professor_id) VALUES
 (1, 'Lova', 'Licence de math', 1);
 

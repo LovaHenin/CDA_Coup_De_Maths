@@ -15,6 +15,5 @@ public class ProfessorService {
         ProfessorRepositoryModel professorRepositoryModel = FullMapper.INSTANCE.professorServiceToProfessorRepository(professorServiceModel);
         ProfessorRepositoryModel newProfessorRepositoryModel = professorRepository.save(professorRepositoryModel);
         return newProfessorRepositoryModel != null;
-
     }
 }

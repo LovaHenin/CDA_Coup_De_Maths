@@ -1,6 +1,7 @@
 package com.simplon.coupdemaths.services.student;
 
 import com.simplon.coupdemaths.mapper.FullMapper;
+import com.simplon.coupdemaths.repositories.securiry.OwnerRepositoryModel;
 import com.simplon.coupdemaths.repositories.student.StudentRepository;
 import com.simplon.coupdemaths.repositories.student.StudentRepositoryModel;
 import com.simplon.coupdemaths.services.model.StudentServiceModel;
@@ -37,4 +38,11 @@ public class StudentService {
     }
 
 
+    public void add(int credit, OwnerRepositoryModel ownerRepositoryModel) {
+        StudentRepositoryModel studentRepositoryModel = new StudentRepositoryModel();
+        studentRepositoryModel.setCredits(credit);
+        studentRepositoryModel.
+
+        studentRepository.save();
+    }
 }
