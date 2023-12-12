@@ -13,7 +13,7 @@ public class QuestionServiceModel {
     private String level;
     private String questionType;
     private LocalDateTime questionDate;
-    // private Long studentId;  //--
+    private Long studentId;
     private StudentServiceModel student; // bouchonné de repo -> service
     private List<DocQuestionServiceModel> docs;
     private List<ResponseServiceModel> responses;

@@ -36,13 +36,4 @@ public class StudentService {
 
         return newstudentRepositoryModel != null;
     }
-
-
-    public void add(int credit, OwnerRepositoryModel ownerRepositoryModel) {
-        StudentRepositoryModel studentRepositoryModel = new StudentRepositoryModel();
-        studentRepositoryModel.setCredits(credit);
-        studentRepositoryModel.
-
-        studentRepository.save();
-    }
 }

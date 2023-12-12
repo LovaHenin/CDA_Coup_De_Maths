@@ -7,13 +7,27 @@ import com.simplon.coupdemaths.services.model.ProfessorServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
 @Service
 public class ProfessorService {
     @Autowired
     ProfessorRepository professorRepository;
-    public boolean addProfessor(ProfessorServiceModel professorServiceModel) {
-        ProfessorRepositoryModel professorRepositoryModel = FullMapper.INSTANCE.professorServiceToProfessorRepository(professorServiceModel);
-        ProfessorRepositoryModel newProfessorRepositoryModel = professorRepository.save(professorRepositoryModel);
-        return newProfessorRepositoryModel != null;
+    public ProfessorServiceModel findById(Long id) {
+        try {
+            ProfessorRepositoryModel professorRepositoryModel = professorRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Aucun professeur trouvé avec l'ID : " + id));
+            ProfessorServiceModel professorServiceModel = FullMapper.INSTANCE.professorRepositoryToProfessorService(professorRepositoryModel);
+            return professorServiceModel;
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+    }
+
+    public List<ProfessorServiceModel> getAll() {
+        List<ProfessorRepositoryModel> professorRepositoryModels = professorRepository.findAll();
+        List<ProfessorServiceModel> professorServiceModels = professorRepositoryModels.stream().map(FullMapper.INSTANCE::professorRepositoryToProfessorService).collect(Collectors.toList());
+        return professorServiceModels;
     }
 }

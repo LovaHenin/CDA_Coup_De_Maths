@@ -1,10 +1,13 @@
 package com.simplon.coupdemaths.repositories.securiry;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,25 +15,29 @@ import java.util.List;
 @Entity
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="owner")
 public class OwnerRepositoryModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // Name of the professor
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email", length = 255)
+    @Column(name = "email", unique = true, length = 255)
     private String email;
 
     @Column(name = "password")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @Column(name = "role")
-    private List<RoleRepositoryModel> roles;
+    @JoinTable(name = "owner_roles",
+            joinColumns = @JoinColumn(name = "owner_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<RoleRepositoryModel> roles = new ArrayList<>();
 
 
 // Implementing methods for security

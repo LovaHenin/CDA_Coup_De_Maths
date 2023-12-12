@@ -1,29 +1,25 @@
 package com.simplon.coupdemaths.controllers.security;
 
+import lombok.Data;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.HashMap;
+import java.util.Map;
+
+@Data
 public class AuthResponseDto {
-    private UserDetails user;
+    private Map<String, Object> user = new HashMap<>();
     private String token;
+    private String message;
 
-    public AuthResponseDto(UserDetails user, String token) {
+    //LOGIN
+    public AuthResponseDto(Map<String, Object> user, String token) {
         this.user = user;
         this.token = token;
     }
 
-    public UserDetails getUser() {
-        return user;
-    }
-
-    public void setUser(UserDetails user) {
-        this.user = user;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
+    public AuthResponseDto(String message) {
+        this.message = message;
     }
 }
+

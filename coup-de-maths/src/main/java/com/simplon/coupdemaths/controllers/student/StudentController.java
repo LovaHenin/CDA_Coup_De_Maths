@@ -15,20 +15,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("api/student")
 public class StudentController {
-
-    private final StudentService studentService;
     @Autowired
-    QuestionService questionService;
+    private  StudentService studentService;
+    @Autowired
+    private QuestionService questionService;
 
-    @GetMapping
-    public List<StudentDto> findAll(){
-        List<StudentServiceModel> studentServiceModels = studentService.getAll();
-        List<StudentDto> studentDtos = studentServiceModels.stream().map(FullMapper.INSTANCE::studentServiceToStudentDto).collect(Collectors.toList());
-       return studentDtos;
-    }
 
     @GetMapping("{id}")
     public StudentDto findById(@PathVariable("id") Long id){
@@ -36,12 +29,6 @@ public class StudentController {
         StudentDto student = FullMapper.INSTANCE.studentServiceToStudentDto(studentServiceModel);
         return student;
     }
-
-//    @PostMapping
-//    public boolean newStudent(@RequestBody StudentDto studentDto){
-//        StudentServiceModel studentServiceModel = FullMapper.INSTANCE.studentDtoToStudentService(studentDto);
-//        return studentService.insererStudent(studentServiceModel);
-//    }
 
     @PostMapping
     public boolean addQuestionByStudent(@RequestBody QuestionDto questionDto){

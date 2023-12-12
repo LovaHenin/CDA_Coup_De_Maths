@@ -66,7 +66,6 @@ public class JwtUserServiceImpl implements JwtUserService {
         ownerRepositoryModel.setPassword(passwordEncoder.encode(password));
         ownerRepository.save(ownerRepositoryModel);
         return ownerRepositoryModel;
-
     }
 
     //USED FOR AUTHENTIFICATION

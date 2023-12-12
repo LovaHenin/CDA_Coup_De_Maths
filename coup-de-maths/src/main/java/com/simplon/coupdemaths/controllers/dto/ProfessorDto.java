@@ -15,9 +15,10 @@ public class ProfessorDto {
     private Long id;
     private String name;
     private String email;
+    private List<RoleDto> roles;
     private String password;
     private int credits;
-//    private List<ResponseServiceModel> responses = new ArrayList<>();
-//    private List<TransactionServiceModel> transactions = new ArrayList<>();
-//    private List<DocDiplomeServiceModel> docDiplomes = new ArrayList<>();
+    private List<ResponseServiceModel> responses = new ArrayList<>();
+    private List<TransactionServiceModel> transactions = new ArrayList<>();
+    private List<DocDiplomeServiceModel> docDiplomes = new ArrayList<>();
 }
