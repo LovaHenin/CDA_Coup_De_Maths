@@ -17,22 +17,6 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "owner_id")
 @Table(name = "professor")
 public class ProfessorRepositoryModel extends OwnerRepositoryModel {
-    // Unique identifier for the professor
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
-    // Name of the professor
-//    @Column(name = "name")
-//    private String name;
-
-//    // Email address of the professor
-//    @Column(name = "email")
-//    private String email;
-
-    // Password associated with the professor's account
-//    @Column(name = "password")
-//    private String password;
 
     // Credits associated with the professor's account
     @Column(name = "credits")

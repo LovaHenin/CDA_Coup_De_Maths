@@ -1,6 +1,7 @@
 package com.simplon.coupdemaths.repositories.securiry;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
