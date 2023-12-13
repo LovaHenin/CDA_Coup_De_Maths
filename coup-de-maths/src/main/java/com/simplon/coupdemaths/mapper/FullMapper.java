@@ -80,8 +80,14 @@ public interface FullMapper {
     //            RESPONSES
     // ****************************
     @Mapping(target= "question",ignore = true)
+    @Mapping(target= "professor",ignore = true)
     ResponseServiceModel responseRepositoryToResponseService(ResponseRepositoryModel responseRepositoryModel);
 
+    //dto=>service
+    ResponseServiceModel responseDtoToResponseService(ResponseDto responseDto);
+
+    // service=>repository
+    ResponseRepositoryModel responseServiceToResponseRepository(ResponseServiceModel responseServiceModel);
 
     // ****************************
     //         DOC QUESTIONS

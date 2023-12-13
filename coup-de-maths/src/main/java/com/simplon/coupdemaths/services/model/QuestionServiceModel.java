@@ -14,7 +14,7 @@ public class QuestionServiceModel {
     private String questionType;
     private LocalDateTime questionDate;
     private Long studentId;
-    private StudentServiceModel student; // bouchonné de repo -> service
+    private StudentServiceModel student; // bouchonné de repo -> service dans le mapper du QuestionService Model
     private List<DocQuestionServiceModel> docs;
     private List<ResponseServiceModel> responses;
 }

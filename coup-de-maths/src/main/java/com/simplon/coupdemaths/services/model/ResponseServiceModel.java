@@ -14,7 +14,10 @@ public class ResponseServiceModel {
     private Long id;
     private String response;
     private LocalDateTime responseDate;
-    private QuestionServiceModel question;
+    private Long questionId;
+    private QuestionServiceModel question;  // bouchonné de repo -> service dans le mapper du ResponseServiceModel
+    private Long professorId;
+    private ProfessorServiceModel professor;// idem bouchonné
     private List<DocResponseServiceModel> docs;
-    private ProfessorServiceModel professor;
+
 }

@@ -21,11 +21,13 @@ public class AdminService {
     public boolean validateRoleStudent(Long id) throws RoleNotFoundException {
 
         OwnerRepositoryModel ownerRepositoryModel = ownerRepository.findById(id).orElseThrow(() -> new RoleNotFoundException("Le rôle avec l'ID spécifié n'a pas été trouvé."));
+       // Retrieve the roles of the user
         List<RoleRepositoryModel> roles = ownerRepositoryModel.getRoles();
         //student.getRoles().add(role);
         for(RoleRepositoryModel role : roles) {
             if (role.getId() == 4) { // STUDENT-TP
                 RoleRepositoryModel roleRepositoryModel = roleRepository.findById(1L).orElseThrow();
+                // Clear existing roles and add the new STUDENT role
                 ownerRepositoryModel.getRoles().clear();
                 ownerRepositoryModel.getRoles().add(roleRepositoryModel);
 
@@ -35,8 +37,9 @@ public class AdminService {
                 ownerRepositoryModel.getRoles().add(roleRepositoryModel1);
             }
         }
-
+        // Save the updated user with new roles
     OwnerRepositoryModel owner = ownerRepository.save(ownerRepositoryModel);
+        // Return true if the update was successful
     return owner != null;
     }
 }

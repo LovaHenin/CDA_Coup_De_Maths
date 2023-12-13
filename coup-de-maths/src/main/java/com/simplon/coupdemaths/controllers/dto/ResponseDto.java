@@ -9,10 +9,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class ResponseDto {
-    private Long id;
-    private String response;
-    private LocalDateTime responseDate;
-    private QuestionDto question;
-    private List<DocResponseDto> docs;
-    private ProfessorDto professor;
+   private Long id;
+   private String response;
+   private LocalDateTime responseDate;
+   private Long questionId;
+   private QuestionDto question;
+    private Long professorId;
+   private ProfessorDto professor;
+   private List<DocResponseDto> docs;
+
 }
