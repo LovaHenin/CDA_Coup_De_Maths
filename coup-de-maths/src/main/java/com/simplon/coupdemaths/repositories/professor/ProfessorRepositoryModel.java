@@ -2,6 +2,7 @@ package com.simplon.coupdemaths.repositories.professor;
 
 import com.simplon.coupdemaths.repositories.doc.DocDiplomeRepositoryModel;
 import com.simplon.coupdemaths.repositories.response.ResponseRepositoryModel;
+import com.simplon.coupdemaths.repositories.securiry.OwnerRepositoryModel;
 import com.simplon.coupdemaths.repositories.transaction.TransactionRepositoryModel;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -13,24 +14,9 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@PrimaryKeyJoinColumn(name = "owner_id")
 @Table(name = "professor")
-public class ProfessorRepositoryModel {
-    // Unique identifier for the professor
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    // Name of the professor
-    @Column(name = "name")
-    private String name;
-
-    // Email address of the professor
-    @Column(name = "email")
-    private String email;
-
-    // Password associated with the professor's account
-    @Column(name = "password")
-    private String password;
+public class ProfessorRepositoryModel extends OwnerRepositoryModel {
 
     // Credits associated with the professor's account
     @Column(name = "credits")

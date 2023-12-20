@@ -3,17 +3,19 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cdmaths
     username: root
-    password: root
+    password:
 
   jpa:
     hibernate:
       ddl-auto: update
+    show_sql: true
+    format_sql: true
 
     defer-datasource-initialization: true
-
+  # mode: never or always pour charger les données apres création des tables et contraintes
   sql:
     init:
-      mode: always
+      mode: never
 
 jwt:
   signing:

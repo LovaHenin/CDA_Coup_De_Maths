@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1dec4fbc-54cc-42cf-9ae5-a7a0ad8a222d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/admin/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/dto/RoleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/securiry/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/model/RoleServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/config/security/SecurityConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/config/security/SecurityConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/dto/StudentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/professor/ProfesseurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/professor/ProfesseurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/question/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/question/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/security/AuthRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/security/AuthRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/security/AuthResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/security/AuthResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/security/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/security/SecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/controllers/student/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/mapper/FullMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/mapper/FullMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/securiry/OwnerRepositoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/securiry/OwnerRepositoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/securiry/RoleRepositoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/repositories/securiry/RoleRepositoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/model/QuestionServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/model/QuestionServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/model/StudentServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/model/StudentServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/professor/ProfessorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/professor/ProfessorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/question/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/question/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/java/com/simplon/coupdemaths/services/student/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coup-de-maths/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/coup-de-maths/src/main/resources/data.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2Z7FE7SFDdoArC7PVgD8LYZlpSP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/professeur&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CDA_Coup_De_Maths" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CDA_Coup_De_Maths" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dec4fbc-54cc-42cf-9ae5-a7a0ad8a222d" name="Changes" comment="" />
+      <created>1701765098849</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701765098849</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -34,7 +34,8 @@ public class ResponseRepositoryModel {
     private QuestionRepositoryModel question;
 
     // List of documents related to the response
-    @OneToMany(mappedBy = "response", orphanRemoval = true)
+
+    @OneToMany(mappedBy = "response",cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<DocResponseRepositoryModel> docs = new ArrayList<>();
 
     // Professor who submitted the response

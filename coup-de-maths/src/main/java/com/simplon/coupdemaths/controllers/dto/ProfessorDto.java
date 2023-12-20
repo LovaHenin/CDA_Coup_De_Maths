@@ -1,8 +1,8 @@
-package com.simplon.coupdemaths.controllers.student.dto;
+package com.simplon.coupdemaths.controllers.dto;
 
-import com.simplon.coupdemaths.services.student.model.DocDiplomeServiceModel;
-import com.simplon.coupdemaths.services.student.model.ResponseServiceModel;
-import com.simplon.coupdemaths.services.student.model.TransactionServiceModel;
+import com.simplon.coupdemaths.services.model.DocDiplomeServiceModel;
+import com.simplon.coupdemaths.services.model.ResponseServiceModel;
+import com.simplon.coupdemaths.services.model.TransactionServiceModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +15,7 @@ public class ProfessorDto {
     private Long id;
     private String name;
     private String email;
+    private List<RoleDto> roles;
     private String password;
     private int credits;
     private List<ResponseServiceModel> responses = new ArrayList<>();
