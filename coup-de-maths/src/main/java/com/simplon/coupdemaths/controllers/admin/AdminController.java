@@ -43,9 +43,9 @@ public class AdminController {
         return studentDtos;
     }
 
-    @PutMapping("/change-role/{id}")
-    public boolean validateRoleStudent (@PathVariable Long id) throws RoleNotFoundException {
-        return adminService.validateRoleStudent(id);
+    @PutMapping("/users/{id}/role")
+    public boolean validateRoleUser (@PathVariable Long id) throws RoleNotFoundException {
+        return adminService.validateRoleUser(id);
     }
 
     @GetMapping("/professors")
