@@ -18,7 +18,7 @@ public class AdminService {
     @Autowired
     RoleRepository roleRepository;
 
-    public boolean validateRoleStudent(Long id) throws RoleNotFoundException {
+    public boolean validateRoleUser(Long id) throws RoleNotFoundException {
 
         OwnerRepositoryModel ownerRepositoryModel = ownerRepository.findById(id).orElseThrow(() -> new RoleNotFoundException("Le rôle avec l'ID spécifié n'a pas été trouvé."));
        // Retrieve the roles of the user

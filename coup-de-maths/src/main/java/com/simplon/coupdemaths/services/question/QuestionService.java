@@ -61,4 +61,29 @@ public class QuestionService {
         return newQuestionRepositoryModel !=null;
     }
 
+    public boolean updateQuestion(QuestionServiceModel questionServiceModel) {
+        //Mapping
+        QuestionRepositoryModel getQuestion = FullMapper.INSTANCE.questionServiceToQuestionRepository(questionServiceModel);
+
+        QuestionRepositoryModel savedQuestion = questionRepository.findById(questionServiceModel.getId()).orElseThrow();
+
+        savedQuestion.setQuestion(getQuestion.getQuestion());
+        savedQuestion.setLevel(getQuestion.getLevel());
+        savedQuestion.setQuestionType(getQuestion.getQuestionType());
+
+        //save question
+            QuestionRepositoryModel newQuestionRepositoryModel = questionRepository.save(savedQuestion);
+
+
+
+
+            return newQuestionRepositoryModel !=null;
+
+    }
+
+    public void deleteById(Long questionId) {
+        questionRepository.deleteById(questionId);
+    }
+
+
 }

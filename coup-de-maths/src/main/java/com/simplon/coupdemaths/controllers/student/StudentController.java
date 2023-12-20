@@ -35,5 +35,17 @@ public class StudentController {
         QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionDtoToQuestionService(questionDto);
         return questionService.addQuestionByStudent(questionServiceModel);
     }
+    @PutMapping("/questions/{questionId}")
+    public boolean updateQuestion(@PathVariable Long questionId, @RequestBody QuestionDto questionDto){
+        questionDto.setId(questionId);
+
+        QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionDtoToQuestionService(questionDto);
+        return questionService.updateQuestion(questionServiceModel);
+    }
+
+    @DeleteMapping("/questions/{questionId}")
+    public void  deleteQuestion(@PathVariable Long questionId){
+        questionService.deleteById(questionId);
+    }
 
 }
