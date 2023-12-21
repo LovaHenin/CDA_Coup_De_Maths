@@ -6,6 +6,8 @@ import { NgForm } from '@angular/forms';
 import { User } from '../interfaces/user.interface';
 import { environment } from 'src/environments/environment.development';
 import { TypeUserEnum } from '../type-user-enum';
+import { Observable } from 'rxjs';
+import { SessionStorage } from '../interfaces/session-storage.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +16,7 @@ export class AuthService {
 
     // Injection des services dans le constructeur
     constructor(
-        private router: Router,
+        private router: Router, // pour une redirect
         private http: HttpClient,
         private jwtTokenService: JwtTokenService
     ) { }
@@ -42,11 +44,47 @@ export class AuthService {
         // Vérifie si un utilisateur a été récupéré
         if (user) {
             // Utilise Array.some() pour vérifier si au moins un rôle a l'autorité "ADMIN"
-            //return user.roles.some(role => role.authority === "ADMIN");
+            return user.roles.some(role => role === "ADMIN");
         }
         // Si aucun utilisateur n'a été récupéré ou si l'utilisateur n'a pas le rôle "ADMIN", retourne false
         return false;
     }
+
+    public isStudent = (): boolean => {
+        // Récupère l'objet utilisateur à partir du session storage
+        const user = this.getUser();
+        // Vérifie si un utilisateur a été récupéré
+        if (user) {
+            // Utilise Array.some() pour vérifier si au moins un rôle a l'autorité "ADMIN"
+            return user.roles.some(role => role === "STUDENT");
+        }
+        // Si aucun utilisateur n'a été récupéré ou si l'utilisateur n'a pas le rôle "ADMIN", retourne false
+        return false;
+    }
+
+    public isProfessor = (): boolean => {
+        // Récupère l'objet utilisateur à partir du session storage
+        const user = this.getUser();
+        // Vérifie si un utilisateur a été récupéré
+        if (user) {
+            // Utilise Array.some() pour vérifier si au moins un rôle a l'autorité "ADMIN"
+            return user.roles.some(role => role === "PROFESSOR");
+        }
+        // Si aucun utilisateur n'a été récupéré ou si l'utilisateur n'a pas le rôle "ADMIN", retourne false
+        return false;
+    }
+
+    public redirectByRole = (): void => {
+        if (this.isProfessor()) {
+          this.router.navigate(['user/professor'])
+        } else if (this.isStudent()) {
+          this.router.navigate(['user/student'])
+        } else if (this.isAdmin()) {
+          this.router.navigate(['user/admin'])
+        } else {
+          this.router.navigate(['/'])
+        }
+      }
 
     // Après une inscription ou authentification réussi
     public doLogged = (data: any): void => {
@@ -105,5 +143,21 @@ export class AuthService {
         }
     }
 
+    public login = (formRegister: NgForm) : Observable<SessionStorage> => {
+        return this.http.post<SessionStorage>(environment.API_URL + 'authorize', formRegister.value);
+    }
+
+    // pour reccuperer les token et mettre avec la route
+    getHeaders(): { Authorization: string } {
+        // Récupérer le token
+        const token = this.getToken();
+    
+        // Créer les en-têtes pour l'authentification Bearer
+        const headers = {
+          Authorization: `Bearer ${token}`,
+        };
+    
+        return headers;
+      }
 
 }

@@ -9,7 +9,7 @@ public class StudentDtoLight {
     private Long id;
     private String name;
     private String email;
-    private String password;
+//    private String password;
     private List<RoleDto> roles;
     private int credits;
 }

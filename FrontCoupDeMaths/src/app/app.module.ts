@@ -18,6 +18,8 @@ import { PageProfComponent } from './page-prof/page-prof.component';
 import { PageStudentComponent } from './page-student/page-student.component';
 import { FormsModule } from '@angular/forms';  // Gestion de formulaire lié a ngModel+ajout dans inmport
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     AdminProfComponent,
     AdminComponent,
     PageProfComponent,
-    PageStudentComponent
+    PageStudentComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     MatIconModule,

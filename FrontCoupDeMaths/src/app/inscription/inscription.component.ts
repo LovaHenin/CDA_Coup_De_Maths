@@ -12,7 +12,7 @@ import { TypeUserEnum } from '../type-user-enum';
 export class InscriptionComponent {
   checbockBoxSelected: TypeUserEnum = 1;
 
-  constructor(protected authService: AuthService) {}
+  constructor( protected authService: AuthService) {}
 
   onItemChange = (s: string) => {
     if (s === 'Professor') this.checbockBoxSelected = TypeUserEnum.PROFESSOR;
