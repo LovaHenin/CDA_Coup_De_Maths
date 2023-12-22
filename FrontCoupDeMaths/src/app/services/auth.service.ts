@@ -90,7 +90,7 @@ export class AuthService {
     public doLogged = (data: any): void => {
         this.setToken(data.token);
         this.setUser(data.user);
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
     }
 
     public getToken = (): string | null => {
@@ -135,7 +135,7 @@ export class AuthService {
     }
 
     public registration = (typeUser: TypeUserEnum, formRegister: NgForm) => {
-        // console.log("registration", typeUser);
+        console.log("registration service", typeUser);
         if (typeUser == 0) {
             return this.http.post<any>(environment.API_URL + 'register/professor', formRegister.value);
         } else {

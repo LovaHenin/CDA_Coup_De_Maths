@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { UserForAdmin } from '../interfaces/user-for-admin.interface';
 
 
 
@@ -21,9 +22,9 @@ export class AdminService {
     const headers = this.authService.getHeaders();
     return (this.http.get<User[]>(environment.API_URL + 'api/admin/students/simple',  {headers} ));
   }
-  public getAllProfessors = (): Observable<User[]> => {
+  public getAllProfessors = (): Observable<UserForAdmin[]> => {
     const headers = this.authService.getHeaders();
-    return (this.http.get<User[]>(environment.API_URL + 'api/admin/professors',  {headers} ));
+    return (this.http.get<UserForAdmin[]>(environment.API_URL + 'api/admin/professors',  {headers} ));
   }
 
   public activeUser = (userId: number): Observable<User> => {

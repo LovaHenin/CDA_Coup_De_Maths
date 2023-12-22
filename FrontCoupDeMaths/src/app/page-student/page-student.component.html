@@ -1,13 +1,37 @@
 <div class="container">
-<header>
-    <h1 class="text-center">STUDENT</h1>
-</header>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Student</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Student</a>
+  <header>
+    <h1 class="text-center">Bienvenue {{ student.name }} !</h1>
+  </header>
+
+  <div class="" *ngFor="let question of student.questions;index as q">
+    <span>Question : {{q + 1}}</span>
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text text-muted text-end">Crée le {{ question.questionDate | date:"dd/MM/yyyy" }}</p>
+
+        
+        <div class="p-2 border text-bg-light rounded mb-3">
+          <p class="card-text">{{ question.question }}</p>
+        </div>
+        <!-- <p class="card-text">{{ question.level }}</p>
+      <p class="card-text">{{ question.questionType }}</p> -->
+
+        <div *ngFor="let reponse of  question.responses; index as i">
+          <span>Response: {{i + 1}}</span>
+          <div class="card mb-3">
+            <div class="card-body">
+              <p class="card-text text-muted">Crée le {{reponse.responseDate | date:"dd/MM/yyyy"}}</p>
+              <div class="p-2 text-bg-light rounded mb-3">
+                <h5 class="card-title">{{ reponse.response }}</h5>
+              </div>
+
+            </div>
+          </div>
+          <!-- <p>{{reponse.professor?.name}}</p> -->
+        </div>
+      </div>
     </div>
   </div>
+
+  <a routerLink="/user/student/question" class="btn btn-primary mb-3">Ajouter une question</a>
 </div>

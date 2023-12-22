@@ -8,6 +8,7 @@ import { AdminProfComponent } from './admin-prof/admin-prof.component';
 import { AdminComponent } from './admin/admin.component';
 import { PageStudentComponent } from './page-student/page-student.component';
 import { PageProfComponent } from './page-prof/page-prof.component';
+import { FormQuestionComponent } from './form-question/form-question.component';
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'user/professor', component:PageProfComponent},
   {path:'admin/student', component:AdminEleveComponent},
   {path:'admin/professor', component:AdminProfComponent},
-  {path:'user/admin', component:AdminComponent}
+  {path:'user/admin', component:AdminComponent},
+  {path:'user/student/question', component: FormQuestionComponent},
 
 ];
 

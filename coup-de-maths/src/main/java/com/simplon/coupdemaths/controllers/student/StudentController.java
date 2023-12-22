@@ -30,7 +30,14 @@ public class StudentController {
         return student;
     }
 
-    @PostMapping
+//    @GetMapping("{id}")
+//    public QuestionDto getQuestionByStudent(@PathVariable("id") Long student_id){
+//        QuestionServiceModel questionServiceModel = questionService.getQuestionByStudent(student_id);
+//        StudentDto student = FullMapper.INSTANCE.studentServiceToStudentDto(studentServiceModel);
+//        return student;
+//    }
+
+    @PostMapping("/questions") // modifier
     public boolean addQuestionByStudent(@RequestBody QuestionDto questionDto){
         QuestionServiceModel questionServiceModel = FullMapper.INSTANCE.questionDtoToQuestionService(questionDto);
         return questionService.addQuestionByStudent(questionServiceModel);

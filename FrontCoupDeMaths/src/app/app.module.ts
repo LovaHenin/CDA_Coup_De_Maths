@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';  // Gestion de formulaire lié a n
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
+import { FormQuestionComponent } from './form-question/form-question.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
     PageProfComponent,
     PageStudentComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    FormQuestionComponent
   ],
   imports: [
     MatIconModule,

@@ -14,14 +14,14 @@
       <td>{{ student.id }}</td>
       <td>{{ student.name }}</td>
       <td>{{ student.email }}</td>
-      <td>{{ student.roles[0]?.name }}</td>
+      <td>{{ student.roles[0].name }}</td>
       <td>{{ student.credits }}</td>
       <td class="text-center">
-        <ng-container *ngIf="student.roles[0]?.name !== 'STUDENT'; else disabledLink">
+        <ng-container *ngIf="student.roles[0].name !== 'STUDENT'; else disabledLink">
           <a (click)="activerEtudiant(student.id)" class="btn btn-outline-info">Activer</a>
         </ng-container>
         <ng-template #disabledLink>
-          <span class="btn btn-outline-info disabled">Activer</span>
+          <span class="btn btn-outline-secondary disabled">Student</span>
         </ng-template>
       </td>
     </tr>

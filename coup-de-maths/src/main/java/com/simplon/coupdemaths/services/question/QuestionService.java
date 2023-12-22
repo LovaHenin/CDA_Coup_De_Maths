@@ -74,9 +74,6 @@ public class QuestionService {
         //save question
             QuestionRepositoryModel newQuestionRepositoryModel = questionRepository.save(savedQuestion);
 
-
-
-
             return newQuestionRepositoryModel !=null;
 
     }
@@ -86,4 +83,6 @@ public class QuestionService {
     }
 
 
+//    public QuestionServiceModel getQuestionByStudent(Long studentId) {
+//    }
 }

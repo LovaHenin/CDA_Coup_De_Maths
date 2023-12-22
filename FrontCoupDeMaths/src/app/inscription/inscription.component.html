@@ -5,8 +5,8 @@
 <div class="testbox">
   <h1>Registration</h1>
 
-  <form #formRegister="ngForm" (submit)="registration(formRegister)">
-    <hr />
+  <form #formRegister="ngForm" (ngSubmit)="registration(formRegister)">
+    <hr/>
     <div class="accounttype">
       <input type="radio" value="None" id="radioOne" name="user" (change)="onItemChange('Professor')" />
       <label for="radioOne" class="radio" chec>Professor</label>
@@ -14,12 +14,12 @@
       <input type="radio" value="None" id="radioTwo" name="user" [checked]="true" (change)="onItemChange('Student')" />
       <label for="radioTwo" class="radio">Student</label>
     </div>
-    <hr />
+    <hr/>
     <label id="icon" for="email"><i class="icon-envelope"></i></label>
     <input ngModel type="text" name="email" id="email" placeholder="Email" required />
 
     <label id="icon" for="name"><i class="icon-user"></i></label>
-    <input ngModel type="text" name="name" id="name" placeholder="Name" required />
+    <input ngModel type="text" name="name" id="name" placeholder="Name" required/>
 
     <label id="icon" for="password"><i class="icon-shield"></i></label>
     <input ngModel type="password" name="password" id="password" placeholder="Password" required />
