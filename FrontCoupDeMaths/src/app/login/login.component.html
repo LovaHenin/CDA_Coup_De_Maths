@@ -1,0 +1,25 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet'
+  type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+<div class="testbox d-flex flex-column justify-content-center align-items-evenly">
+  <h1>Connexion</h1>
+
+  <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
+
+    <label id="icon" for="email"><i class="icon-envelope"></i></label>
+    <input type="text" ngModel name="email" id="email" placeholder="Email" required />
+
+    <label id="icon" for="password"><i class="icon-shield"></i></label>
+    <input type="password" ngModel name="password" id="password" placeholder="Password" required />
+
+    <div class=" text-center">
+      <button type="submit" class="btn btn-primary px-5">Login</button>
+    </div>
+  </form>
+
+  <div class="pt-3 text-center">
+    Pas encore inscrit ?
+    <a routerLink="/inscription">Inscrivez-vous !</a>
+  </div>
+</div>

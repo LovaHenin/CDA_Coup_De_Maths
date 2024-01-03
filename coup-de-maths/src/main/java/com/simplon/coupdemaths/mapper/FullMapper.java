@@ -69,7 +69,7 @@ public interface FullMapper {
 
 
     // repository --> service
-    @Mapping(target= "student",ignore = true)
+    @Mapping(target= "student", ignore = true)
     QuestionServiceModel  questionRepositoryToQuestionService(QuestionRepositoryModel questionRepositoryModel);
 
     // service --> dto

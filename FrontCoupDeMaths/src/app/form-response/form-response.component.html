@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="p-3 shadow">
+    <p>{{question.question}}</p>
+  </div>
+
+  <form #formResponse="ngForm" (ngSubmit)="onSubmit(formResponse)">
+    <div class="mb-3">
+      <label for="response" class="form-label mt-3">Réponse</label>
+      <textarea class="form-control" id="response" name="response" ngModel rows="4"
+        placeholder="Votre réponse"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="fileUpload" class="form-label">Insérer Document</label>
+      <div class="input-group">
+        <input type="file" class="form-control" id="fileUpload" name="fileUpload" (change)="handleFileInput($event)">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div>

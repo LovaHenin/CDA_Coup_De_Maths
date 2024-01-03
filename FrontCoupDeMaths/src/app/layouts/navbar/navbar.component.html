@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-lovaBlue fixed-top">
+
+    <div class="container-fluid">
+        <a class="nav-link" routerLink="/">
+            <img src="assets/img/logoHight.png" class="rounded-circle" alt="Logo" height="40">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">
+                        CoupDeMaths
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="authService.isAuth()">
+                    <a class="nav-link pointer" (click)="authService.redirectByRole()">
+                        Espace personnel
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/quizz">
+                        Quizz
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="authService.isAdmin()">
+                    <a class="nav-link" routerLink="/admin">
+                        Admin
+                    </a>
+                </li>
+            </ul>
+
+            <div *ngIf="authService.isAuth(); else login">
+                <button class="btn btn-outline-light" (click)="logout()">Déconnexion</button>
+            </div>
+
+            <ng-template #login>
+                <button routerLink="/login" class="btn btn-outline-light" type="submit">Se connecter</button>
+            </ng-template>
+
+        </div>
+    </div>
+</nav>

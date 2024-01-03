@@ -21,7 +21,7 @@ public class ResponseRepositoryModel {
     private Long id;
 
     // Text content of the response
-    @Column(name = "response")
+    @Column(name = "response", columnDefinition = "LONGTEXT")
     private String response;
 
     // Date and time when the response was submitted

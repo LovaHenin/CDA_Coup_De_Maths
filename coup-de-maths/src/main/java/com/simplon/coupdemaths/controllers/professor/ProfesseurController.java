@@ -12,6 +12,7 @@ import com.simplon.coupdemaths.services.response.ResponseService;
 import com.simplon.coupdemaths.services.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,16 +27,32 @@ public class ProfesseurController {
     private StudentService studentService;
     @Autowired
     private QuestionService questionService;
-
     @Autowired
     private ResponseService responseService;
 
 
-    @PostMapping
-    public boolean addResponseByProfessor(@RequestBody ResponseDto responseDto){
+//    @PostMapping
+//    public boolean addResponseByProfessor(@RequestBody ResponseDto responseDto){
+//
+//        ResponseServiceModel responseServiceModel = FullMapper.INSTANCE.responseDtoToResponseService(responseDto);
+//        return responseService.addResponseByProfessor(responseServiceModel);
+//    }
+
+
+    @PostMapping("/responses")
+    public boolean addResponseByProfessor(
+            @RequestParam(name = "questionId", required = true) Long questionId,
+            @RequestParam(name = "professorId", required = true) Long professorId,
+            @RequestParam(name = "response", required = true) String response,
+            @RequestParam(name = "documentName", required = false) String documentName,
+            @RequestPart(name = "documentFile", required = false) MultipartFile documentFile
+    ){
+
+        ResponseDto responseDto = new ResponseDto(response,questionId,professorId);
 
         ResponseServiceModel responseServiceModel = FullMapper.INSTANCE.responseDtoToResponseService(responseDto);
-        return responseService.addResponseByProfessor(responseServiceModel);
+      return responseService.addResponseByProfessor(responseServiceModel,documentName,documentFile);
+
     }
 
 
@@ -57,6 +74,12 @@ public class ProfesseurController {
         List<QuestionServiceModel> questionServiceModels = questionService.getAll();
         List<QuestionDto> questionDtos = questionServiceModels.stream().map(FullMapper.INSTANCE::questionServiceToQuestionDto).collect(Collectors.toList());
         return questionDtos;
+    }
+
+    @GetMapping("/questions/{id}")
+    public QuestionDto findQuestionById(@PathVariable("id") Long id){
+        QuestionServiceModel questionServiceModel = questionService.findById(id);
+        return FullMapper.INSTANCE.questionServiceToQuestionDto(questionServiceModel);
     }
 
 }

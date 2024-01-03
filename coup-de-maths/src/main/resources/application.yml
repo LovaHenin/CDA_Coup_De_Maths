@@ -5,9 +5,14 @@ spring:
     username: root
     password:
 
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 6MB
+
   jpa:
     hibernate:
-      ddl-auto: update
+    ddl-auto: update # create-drop, none, update, create
     show_sql: true
     format_sql: true
 
@@ -15,7 +20,7 @@ spring:
   # mode: never or always pour charger les données apres création des tables et contraintes
   sql:
     init:
-      mode: never
+      mode: never # always / never
 
 jwt:
   signing:

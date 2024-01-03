@@ -1,0 +1,201 @@
+
+-- Déchargement des données de la table `student`
+--
+
+INSERT INTO `student` (`credits`, `id`, `email`, `name`, `password`) VALUES
+(5, 1, 'lova@gmail.com', 'lova', '1234'),
+(5, 2, 'sarah@gmail.com', 'sarah', '1234'),
+(5, 3, 'eric@gmail.com', 'eric', '1234');
+
+-- --------------------------------------------------------
+
+-- Déchargement des données de la table `transaction`
+--
+
+INSERT INTO `transaction` (`amount`, `date`, `id`, `professor_id`, `student_id`, `type`) VALUES
+(100, '2023-12-05 14:56:20.000000', 1, NULL, 3, 'PURCHASE_CREDIT');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `document_diplome`
+--
+ALTER TABLE `document_diplome`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK3gk1dj0pxv08i7k59aebjeusp` (`professor_id`);
+
+--
+-- Index pour la table `document_question`
+--
+ALTER TABLE `document_question`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `document_response`
+--
+ALTER TABLE `document_response`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `professor`
+--
+ALTER TABLE `professor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `question_docs`
+--
+ALTER TABLE `question_docs`
+  ADD UNIQUE KEY `UK_spivi9bukek9jk0jiohu45vx8` (`docs_id`),
+  ADD KEY `FKdit7pv5u7o5y50rjk39na5aeg` (`question_repository_model_id`);
+
+--
+-- Index pour la table `response`
+--
+ALTER TABLE `response`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK6mo28lh7mbibd15fgsprnoaso` (`professor_id`),
+  ADD KEY `FK3e7adco6sq6onricr8s3glu62` (`question_id`);
+
+--
+-- Index pour la table `response_docs`
+--
+ALTER TABLE `response_docs`
+  ADD UNIQUE KEY `UK_b6fwpgji9ortunn2y2onr4ibw` (`docs_id`),
+  ADD KEY `FK40wm8v736eablvcyq2qc1d3ww` (`response_repository_model_id`);
+
+--
+-- Index pour la table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `student_questions`
+--
+ALTER TABLE `student_questions`
+  ADD UNIQUE KEY `UK_q11psle7s0483knqyhsocjf2y` (`questions_id`),
+  ADD KEY `FKom3vyy93wlw4878po1cnflykc` (`student_repository_model_id`);
+
+--
+-- Index pour la table `student_transactions`
+--
+ALTER TABLE `student_transactions`
+  ADD UNIQUE KEY `UK_idnxw2kgo960sup5a8k9dugn7` (`transactions_id`),
+  ADD KEY `FKhc4p68xui0k4hmhtrko62hk72` (`student_repository_model_id`);
+
+--
+-- Index pour la table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `document_diplome`
+--
+ALTER TABLE `document_diplome`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `document_question`
+--
+ALTER TABLE `document_question`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `document_response`
+--
+ALTER TABLE `document_response`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `professor`
+--
+ALTER TABLE `professor`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `question`
+--
+ALTER TABLE `question`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `response`
+--
+ALTER TABLE `response`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `student`
+--
+ALTER TABLE `student`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `document_diplome`
+--
+ALTER TABLE `document_diplome`
+  ADD CONSTRAINT `FK3gk1dj0pxv08i7k59aebjeusp` FOREIGN KEY (`professor_id`) REFERENCES `professor` (`id`);
+
+--
+-- Contraintes pour la table `question_docs`
+--
+ALTER TABLE `question_docs`
+  ADD CONSTRAINT `FKdit7pv5u7o5y50rjk39na5aeg` FOREIGN KEY (`question_repository_model_id`) REFERENCES `question` (`id`),
+  ADD CONSTRAINT `FKnflge1q60kwtpc75etubj78n7` FOREIGN KEY (`docs_id`) REFERENCES `document_question` (`id`);
+
+--
+-- Contraintes pour la table `response`
+--
+ALTER TABLE `response`
+  ADD CONSTRAINT `FK3e7adco6sq6onricr8s3glu62` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`),
+  ADD CONSTRAINT `FK6mo28lh7mbibd15fgsprnoaso` FOREIGN KEY (`professor_id`) REFERENCES `professor` (`id`);
+
+--
+-- Contraintes pour la table `response_docs`
+--
+ALTER TABLE `response_docs`
+  ADD CONSTRAINT `FK40wm8v736eablvcyq2qc1d3ww` FOREIGN KEY (`response_repository_model_id`) REFERENCES `response` (`id`),
+  ADD CONSTRAINT `FK69mrwbc9tw65uvs3vcr8arqgn` FOREIGN KEY (`docs_id`) REFERENCES `document_response` (`id`);
+
+--
+-- Contraintes pour la table `student_questions`
+--
+ALTER TABLE `student_questions`
+  ADD CONSTRAINT `FKf8o7nusmokoc613hp9gioc1th` FOREIGN KEY (`questions_id`) REFERENCES `question` (`id`),
+  ADD CONSTRAINT `FKom3vyy93wlw4878po1cnflykc` FOREIGN KEY (`student_repository_model_id`) REFERENCES `student` (`id`);
+
+--
+-- Contraintes pour la table `student_transactions`
+--
+ALTER TABLE `student_transactions`
+  ADD CONSTRAINT `FKfefenjpt4xnubjd1wxt35jg7i` FOREIGN KEY (`transactions_id`) REFERENCES `transaction` (`id`),
+  ADD CONSTRAINT `FKhc4p68xui0k4hmhtrko62hk72` FOREIGN KEY (`student_repository_model_id`) REFERENCES `student` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

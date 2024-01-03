@@ -15,6 +15,7 @@ public class ProfessorServiceModel {
     private Long id;
     private String name;
     private String email;
+    private List<RoleServiceModel> roles;
     private String password;
     private int credits;
     //private List<ResponseServiceModel> responses = new ArrayList<>();
