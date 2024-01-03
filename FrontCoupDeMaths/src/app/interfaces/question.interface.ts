@@ -10,6 +10,6 @@ export interface Question {
     questionDate: string;
     studentId: number | null;
     student: User | null;
-    docs: Document[];
-    responses: Response[];
+    docs?: Document[];
+    responses?: Response[];
 }

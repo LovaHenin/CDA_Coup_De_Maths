@@ -1,4 +1,4 @@
 export enum TypeQuestion {
-    'NORMAL',
-    'URGENT'
+    NORMAL,
+    URGENT
 }

@@ -1,33 +1,37 @@
 <div class="container">
-    <form>
-      <div class="mb-3">
-        <label for="question" class="form-label mt-3">Nouvelle Question</label>
-        <input type="text" class="form-control" id="question" name="question" placeholder="Votre question">
-      </div>
-  
-      <div class="mb-3">
-        <label for="level" class="form-label">Niveau</label>
-        <select class="form-select" id="level" name="level">   
 
-          <!-- Add other options as needed -->
-        </select>
-      </div>
-  
-      <div class="mb-3">
-        <label for="questionType" class="form-label">Type de Question</label>
-        <select class="form-select" id="questionType" name="questionType">
-          <option value="NORMAL">Normal</option>
-          <!-- Add other options as needed -->
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="fileUpload" class="form-label">Inserer Document</label>
-        <div class="input-group">
-          <input type="file" class="form-control" id="fileUpload" name="fileUpload" (change)="handleFileInput($event)">
-        </div>
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Envoyer</button>
-    </form>
+  <form #formQuestion="ngForm" (ngSubmit)="onSubmit(formQuestion)">
+    <div class="mb-3">
+      <label for="question" class="form-label mt-3">Nouvelle Question</label>
+      <textarea class="form-control" id="question" name="question" [(ngModel)]="question.question" rows="4" placeholder="Votre question"></textarea>
+    </div>
+
+  <div class="mb-3">
+    <label for="level" class="form-label">Niveau</label>
+    <select class="form-select" id="level" name="level" [(ngModel)]="question.level">
+      <option value="" disabled selected> Choisir votre niveau</option>
+      <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
+    </select>
   </div>
-  
+
+  <div class="mb-3">
+    <label for="questionType" class="form-label">Type de Question</label>
+    <select class="form-select" id="questionType" name="questionType" [(ngModel)]="question.questionType">
+      <option value="" disabled selected>Choisir le type de question</option>
+      <option *ngFor="let questionType of questionTypes" [value]="questionType">{{ questionType }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="fileUpload" class="form-label">Inserer Document</label>
+    <div class="input-group">
+      <input type="file" class="form-control" id="fileUpload" name="fileUpload" (change)="handleFileInput($event)">
+    </div>
+    <p class="mt-2" *ngFor="let doc of question.docs"><span class="fw-bold">Document(s) : </span>{{ doc.documentName }}</p>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary mb-3">Envoyer</button>
+</form>
+
+</div>

@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { FormQuestionComponent } from './form-question/form-question.component';
+import { FormResponseComponent } from './form-response/form-response.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormQuestionComponent } from './form-question/form-question.component';
     PageStudentComponent,
     NavbarComponent,
     FooterComponent,
-    FormQuestionComponent
+    FormQuestionComponent,
+    FormResponseComponent
   ],
   imports: [
     MatIconModule,

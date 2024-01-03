@@ -1,20 +1,27 @@
 <div class="container">
   <header>
-    <h1 class="text-center">Bienvenue {{ student.name }} !</h1>
+    <h1 class="text-center py-2 border-secondary border-bottom">Bienvenue {{ student.name }} !</h1>
   </header>
 
-  <div class="" *ngFor="let question of student.questions;index as q">
+  <div class="" *ngFor="let question of student?.questions;index as q">
     <span>Question : {{q + 1}}</span>
     <div class="card mb-3">
       <div class="card-body">
         <p class="card-text text-muted text-end">Crée le {{ question.questionDate | date:"dd/MM/yyyy" }}</p>
 
-        
         <div class="p-2 border text-bg-light rounded mb-3">
           <p class="card-text">{{ question.question }}</p>
         </div>
-        <!-- <p class="card-text">{{ question.level }}</p>
-      <p class="card-text">{{ question.questionType }}</p> -->
+
+        <div *ngFor="let doc of question.docs; index as q">
+          <p>Télécharger le document: <a [href]="url_upload + doc.documentPath">{{doc.documentName}}</a></p>
+        </div>
+
+
+        <div *ngIf="question.responses?.length == 0">
+          <button class="btn btn-sm btn-outline-primary m-2" [routerLink]="['/user/student/question/' + question.id]">Modifier</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="delete(question.id)">Supprimer</button>
+        </div>
 
         <div *ngFor="let reponse of  question.responses; index as i">
           <span>Response: {{i + 1}}</span>

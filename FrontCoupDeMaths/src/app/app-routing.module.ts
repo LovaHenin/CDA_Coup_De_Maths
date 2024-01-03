@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { PageStudentComponent } from './page-student/page-student.component';
 import { PageProfComponent } from './page-prof/page-prof.component';
 import { FormQuestionComponent } from './form-question/form-question.component';
+import { FormResponseComponent } from './form-response/form-response.component';
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -20,6 +21,9 @@ const routes: Routes = [
   {path:'admin/professor', component:AdminProfComponent},
   {path:'user/admin', component:AdminComponent},
   {path:'user/student/question', component: FormQuestionComponent},
+  {path:'user/student/question/:id', component: FormQuestionComponent},
+  {path:'user/professor/response/:questionId', component: FormResponseComponent},
+
 
 ];
 

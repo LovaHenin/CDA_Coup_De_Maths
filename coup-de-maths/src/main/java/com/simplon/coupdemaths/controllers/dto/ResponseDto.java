@@ -14,8 +14,13 @@ public class ResponseDto {
    private LocalDateTime responseDate;
    private Long questionId;
    private QuestionDto question;
-    private Long professorId;
+   private Long professorId;
    private ProfessorDto professor;
    private List<DocResponseDto> docs;
 
+   public ResponseDto(String response, Long questionId, Long professorId) {
+      this.response = response;
+      this.questionId = questionId;
+      this.professorId = professorId;
+   }
 }

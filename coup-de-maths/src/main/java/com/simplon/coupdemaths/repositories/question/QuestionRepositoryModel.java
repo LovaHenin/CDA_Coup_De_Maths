@@ -27,7 +27,7 @@ public class QuestionRepositoryModel {
     private Long id;
 
     // Content of the question
-    @Column(name = "question")
+    @Column(name = "question", columnDefinition = "LONGTEXT")
     private String question;
 
     // Level of difficulty for the question (e.g,COLLEGE,HIGH_SCHOOL,UNIVERSITY)

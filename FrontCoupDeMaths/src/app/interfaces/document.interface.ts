@@ -1,5 +1,5 @@
 export interface Document {
-    id: number;
+    id?: number;
     documentName: string;
     documentPath: string;
 }
